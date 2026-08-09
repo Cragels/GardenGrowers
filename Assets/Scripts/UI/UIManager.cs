@@ -2,10 +2,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager Instance;
+    public static UIManager Instance { get; private set; }
 
     [Header("UI Text Elements")]
     //public TextMeshProUGUI livesText;
@@ -19,27 +20,31 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject Hud;
     [SerializeField] private GameObject gameOverMenu;
     [SerializeField] private GameObject gameWinMenu;
-    
+    [SerializeField] private GameObject Inventory;
+
+    [Header("Inventory System")]
+    private bool openInventory = true;
+    public InventorySlot[] toolSlots;
+    public InventorySlot[] itemSlots;
+    public TextMeshProUGUI itemNameText;
+    public TextMeshProUGUI itemDescriptionText;
 
 
     private bool isPaused = false;
 
 
-    [SerializeField] private InputHandle input;
 
-    void Update()
-    {
-        if (input.PausePressed)
-        {
-            PauseMenuControle();
-        }
-    }
-
+    [SerializeField] private InputActionAsset playerControls;
 
     void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+    }
+
+    private void Start()
+    {
+        RenderInventory();
     }
 
     public void UpdateTime(int hour, int minute)
@@ -51,28 +56,6 @@ public class UIManager : MonoBehaviour
     {
         moneyText.text = "R " + money;
     }
-
-  //  private void OnEnable()
-   // {
-    //    pauseAction.action.performed += OnPausePerformed;
-    //    pauseAction.action.Enable();
-
-
-   // }
-
-   // private void OnDisable()
-   // {
-     //   pauseAction.action.performed -= OnPausePerformed;
-      //  pauseAction.action.Disable();
-
-
-   // }
-
-   // private void OnPausePerformed(InputAction.CallbackContext context)
-   // {
-   //     PauseMenuControle();
-   // }
-
 
     public void FreezeGame()
     {
@@ -98,6 +81,26 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(mainMenu);
     }
 
+    public void InventoryUIControl()
+    {
+        if (openInventory == true) 
+        {
+            Inventory.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            openInventory = false;
+
+            
+        }
+        else if (openInventory == false) 
+        {
+            Inventory.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            openInventory = true;
+        }
+        RenderInventory();
+    }
 
     public void SettingsLoad()
     {
@@ -154,6 +157,36 @@ public class UIManager : MonoBehaviour
 
     }
 
-    
+    public void RenderInventory()
+    {
+        ItemData[] inventoryToolSlots = InventoryManager.Instance.tools;
 
+        ItemData[] inventoryItemSlots = InventoryManager.Instance.items;
+
+        RenderInventoryPanel(inventoryToolSlots, toolSlots);
+
+        RenderInventoryPanel(inventoryItemSlots, itemSlots);
+    }
+
+    void RenderInventoryPanel(ItemData[] Slots, InventorySlot[] uiSlots)
+    {
+        ItemData[] inventoryToolSlot = InventoryManager.Instance.tools;
+        for (int i = 0; i < uiSlots.Length; i++)
+        {
+            uiSlots[i].Display(Slots[i]);
+        }
+    }
+
+    public void DisplayItemInfo(ItemData data)
+    {
+        if (data == null) 
+        {
+            itemNameText.text = "";
+            itemDescriptionText.text = "";
+
+            return;
+        }
+        itemNameText.text = data.name;
+        itemDescriptionText.text = data.description;
+    }
 }

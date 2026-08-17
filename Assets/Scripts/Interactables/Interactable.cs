@@ -7,10 +7,24 @@ using TMPro;
 public class Interactable : MonoBehaviour
 {
     //https://www.youtube.com/watch?v=b7Yf6BFx6js
+    public static Interactable Instance { get; private set; }
+
     Outline outline;
+    [Header("Base Message")]
     public string message;
 
+    [Header("Tool Requirement")]
+    [Tooltip("Leave empty if this interactable doesn't need a specific tool")]
+    [SerializeField] private ItemData requiredTool;
+
+    [Header("Case Messages")]
+    [SerializeField, TextArea] private string correctToolMessage;
+    [SerializeField, TextArea] private string wrongToolMessage;
+    [SerializeField, TextArea] private string missingToolMessage;
+
     public UnityEvent onInteraction;
+    [Tooltip("Fires when the player interacts with the wrong (or no) tool equipped")]
+    public UnityEvent onWrongTool;
 
     [Header("Prompt UI")]
     [SerializeField] private GameObject promptCanvas;
@@ -22,10 +36,30 @@ public class Interactable : MonoBehaviour
         outline = GetComponent<Outline>();
         DisableOutline();
 
-        if (promptText != null)
-            promptText.text = message;
+       RefreshPrompt();
 
         DisablePrompt();
+    }
+    public void RefreshPrompt()
+    {
+        if (promptText == null) return;
+        promptText.text = GetCurrentMessage();
+    }
+
+    private string GetCurrentMessage()
+    {
+        if (requiredTool == null)
+            return message;
+
+        ItemData equipped = InventoryManager.Instance.equippedTool;
+
+        if (equipped == requiredTool)
+            return string.IsNullOrEmpty(correctToolMessage) ? message : correctToolMessage;
+
+        if (equipped == null)
+            return string.IsNullOrEmpty(missingToolMessage) ? message : missingToolMessage;
+
+        return string.IsNullOrEmpty(wrongToolMessage) ? message : wrongToolMessage;
     }
 
     public void Interact()
@@ -42,6 +76,7 @@ public class Interactable : MonoBehaviour
     public void EnableOutline()
     {
         outline.enabled = true;
+        RefreshPrompt();
         EnablePrompt();
     }
 

@@ -8,6 +8,12 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { get; private set; }
 
+    
+
+    [Header("Status Bar")]
+    public Image toolEquipSlot;
+
+
     [Header("UI Text Elements")]
     //public TextMeshProUGUI livesText;
     public TextMeshProUGUI moneyText;
@@ -25,9 +31,21 @@ public class UIManager : MonoBehaviour
     [Header("Inventory System")]
     private bool openInventory = true;
     public InventorySlot[] toolSlots;
+
+    //tool equip slot UI on the Inventory Panel
+    public HandInventorySlot toolHandSlot;
+
     public InventorySlot[] itemSlots;
+
+    //item equip slot UI on the Inventory Panel
+    public HandInventorySlot itemHandSlot;
+
     public TextMeshProUGUI itemNameText;
     public TextMeshProUGUI itemDescriptionText;
+
+   
+
+   
 
 
     private bool isPaused = false;
@@ -45,6 +63,16 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         RenderInventory();
+        AssignSlotIndexes();
+    }
+
+    public void AssignSlotIndexes()
+    {
+        for (int i = 0; i < toolSlots.Length; i++) 
+        {
+            toolSlots[i].AssignIndex(i);
+            itemSlots[i].AssignIndex(i);
+        }
     }
 
     public void UpdateTime(int hour, int minute)
@@ -166,6 +194,28 @@ public class UIManager : MonoBehaviour
         RenderInventoryPanel(inventoryToolSlots, toolSlots);
 
         RenderInventoryPanel(inventoryItemSlots, itemSlots);
+
+        toolHandSlot.Display(InventoryManager.Instance.equippedTool);
+        itemHandSlot.Display(InventoryManager.Instance.equippedItem);
+
+        FirstPersonToolDisplay.Instance.EquipTool(InventoryManager.Instance.equippedTool);
+
+        //get tool from inventory manager
+        ItemData equippedTool = InventoryManager.Instance.equippedTool;
+
+        if (equippedTool != null)
+        {
+            toolEquipSlot.sprite = equippedTool.thumbnail;
+            
+
+            toolEquipSlot.gameObject.SetActive(true);
+
+
+
+            return;
+
+        }
+        toolEquipSlot.gameObject.SetActive(false);
     }
 
     void RenderInventoryPanel(ItemData[] Slots, InventorySlot[] uiSlots)

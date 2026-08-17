@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: Speeds uo growth
   thumbnail: {fileID: 21300000, guid: 804aef5cb0c331742b31aa5606fb7687, type: 3}
-  gameModel: {fileID: 0}
+  gameModel: {fileID: 7853548718675170881, guid: 20c68e2322fd7ba4ab1229977eaeed0c, type: 3}
+  modelPositionOffset: {x: 0, y: -0.15, z: 0}
+  modelRotationOffset: {x: 20, y: 0, z: 0}
   toolType: 2

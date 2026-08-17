@@ -11,5 +11,7 @@ public class ItemData : ScriptableObject
     //GameObject to be shown in the scene
     public GameObject gameModel;
 
-
+    [Header("Model Alignment")]
+    public Vector3 modelPositionOffset;
+    public Vector3 modelRotationOffset;
 }

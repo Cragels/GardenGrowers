@@ -97,6 +97,22 @@ public class InventoryManager : MonoBehaviour
         UIManager.Instance.RenderInventory();
     }
 
+    public bool AddItem(ItemData item, InventorySlot.InventoryType inventoryType)
+    {
+        ItemData[] slots = (inventoryType == InventorySlot.InventoryType.Item) ? items : tools;
+
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i] == null)
+            {
+                slots[i] = item;
+                UIManager.Instance.RenderInventory();
+                return true; // pickup succeeded
+            }
+        }
+
+        return false; // inventory full
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

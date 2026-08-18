@@ -43,9 +43,9 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI itemNameText;
     public TextMeshProUGUI itemDescriptionText;
 
-   
+    public FirstPersonController firstPersonController;
 
-   
+    public bool inSettings;
 
 
     private bool isPaused = false;
@@ -64,6 +64,8 @@ public class UIManager : MonoBehaviour
     {
         RenderInventory();
         AssignSlotIndexes();
+
+        inSettings = false;
     }
 
     public void AssignSlotIndexes()
@@ -133,35 +135,46 @@ public class UIManager : MonoBehaviour
     public void SettingsLoad()
     {
         SceneManager.LoadScene(Settings, LoadSceneMode.Additive);
+        inSettings = true;
     }
 
     public void CloseSettings()
     {
         SceneManager.UnloadSceneAsync(Settings);
+        inSettings = false;
     }
 
     public void PauseMenuControle()
     {
-        if (isPaused == false)
+        if (inSettings == true)
         {
-            pauseMenu.SetActive(true);
-            Hud.SetActive(false);
-            isPaused = true;
-            FreezeGame();
-
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            CloseSettings();
         }
-
-        else if (isPaused == true)
+        else
         {
-            pauseMenu.SetActive(false);
-            Hud.SetActive(true);
-            isPaused = false;
-            UnFreezeGame();
+            if (isPaused == false)
+            {
+                pauseMenu.SetActive(true);
+                Hud.SetActive(false);
+                isPaused = true;
+                FreezeGame();
 
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                firstPersonController.enabled = false;
+            }
+
+            else if (isPaused == true)
+            {
+                pauseMenu.SetActive(false);
+                Hud.SetActive(true);
+                isPaused = false;
+                UnFreezeGame();
+
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                firstPersonController.enabled = true;
+            }
         }
     }
 

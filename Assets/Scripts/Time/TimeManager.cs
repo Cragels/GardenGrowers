@@ -15,7 +15,7 @@ public class TimeManager : MonoBehaviour
     public Transform sunTransform;
 
     //Observer pattern
-    List<ITimeTracker> listeners;
+    List<ITimeTracker> listeners = new List<ITimeTracker>();
 
     private void Awake()
     {
@@ -38,10 +38,15 @@ public class TimeManager : MonoBehaviour
     {
         while (true) 
         {
-            yield return new WaitForSeconds(1/timeScale);
             Tick();
+            yield return new WaitForSeconds(1/timeScale);
         }
        
+    }
+
+    public GameTimeStamp GetGameTimeStamp()
+    {
+        return new GameTimeStamp(timeStamp);
     }
 
     public void Tick()

@@ -38,6 +38,15 @@ public class GameTimeStamp
         this.minute = minute;
     }
 
+    public GameTimeStamp(GameTimeStamp timeStamp)
+    {
+        this.year = timeStamp.year;
+        this.season = timeStamp.season;
+        this.day = timeStamp.day;
+        this.hour = timeStamp.hour;
+        this.minute = timeStamp.minute;
+    }
+
     public void UpdateClock()
     {
         minute++;
@@ -104,5 +113,15 @@ public class GameTimeStamp
         return years * 4 * 30;
     }
 
-    
+    public static int ToAbsoluteDay(GameTimeStamp t) => YearsToDays(t.year) + SeasonsToDays(t.season) + t.day;
+
+    //Calculate the difference between two timestamps.
+    public static int CompareTimestamps(GameTimeStamp timestamp1, GameTimeStamp timestamp2)
+    {
+        int timestamp1Hours = DayToHour(YearsToDays(timestamp1.year)) + DayToHour(SeasonsToDays(timestamp1.season)) + DayToHour(timestamp1.day) + timestamp1.hour;
+        int timestamp2Hours = DayToHour(YearsToDays(timestamp2.year)) + DayToHour(SeasonsToDays(timestamp2.season)) + DayToHour(timestamp2.day) + timestamp2.hour;
+        int difference = timestamp1Hours - timestamp2Hours;
+
+        return Mathf.Abs(difference);
+    }
 }

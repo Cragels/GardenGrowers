@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour
+public class UIManager : MonoBehaviour, ITimeTracker
 {
     public static UIManager Instance { get; private set; }
 
@@ -13,11 +13,14 @@ public class UIManager : MonoBehaviour
     [Header("Status Bar")]
     public Image toolEquipSlot;
 
+    [Header("Time UI")]
+    public TextMeshProUGUI timeText;
+    public TextMeshProUGUI dateText;
 
     [Header("UI Text Elements")]
     //public TextMeshProUGUI livesText;
     public TextMeshProUGUI moneyText;
-    public TextMeshProUGUI timeText;
+    
 
     private string Settings = "SettingsMenu";
     private string mainMenu = "MainMenu";
@@ -64,6 +67,9 @@ public class UIManager : MonoBehaviour
     {
         RenderInventory();
         AssignSlotIndexes();
+
+        //Add UI Manager to list of objects TimeManager will notify
+        TimeManager.Instance.RegisterTracker(this);
 
         inSettings = false;
     }
@@ -251,5 +257,34 @@ public class UIManager : MonoBehaviour
         }
         itemNameText.text = data.name;
         itemDescriptionText.text = data.description;
+    }
+
+    public void ClockUpdate(GameTimeStamp timeStamp)
+    {
+        //Handle Time
+
+        //Get the hours and minutes
+        int hours = timeStamp.hour;
+        int minutes = timeStamp.minute;
+
+        //AM or PM
+        string suffix = "AM";
+
+        if (hours > 12) 
+        {
+            suffix = "PM";
+            hours -= 12;
+        }
+
+        timeText.text = hours + ":" + minutes.ToString("00") + " " + suffix;
+
+        //Handle Date
+        int day = timeStamp.day;
+        string season = timeStamp.season.ToString();
+        string dayOfTheWeek = timeStamp.GetDayOfTheWeek().ToString();
+
+        //Format it for date
+        dateText.text = season + " " + day + " (" + dayOfTheWeek + ") ";
+
     }
 }

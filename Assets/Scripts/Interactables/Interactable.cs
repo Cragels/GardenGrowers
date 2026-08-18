@@ -30,6 +30,7 @@ public class Interactable : MonoBehaviour
     [SerializeField] private GameObject promptCanvas;
     [SerializeField] private TextMeshProUGUI promptText;
 
+    public System.Func<string> messageProvider;
 
     void Start()
     {
@@ -43,7 +44,7 @@ public class Interactable : MonoBehaviour
     public void RefreshPrompt()
     {
         if (promptText == null) return;
-        promptText.text = GetCurrentMessage();
+        promptText.text = messageProvider != null ? messageProvider() : GetCurrentMessage();
     }
 
     private string GetCurrentMessage()

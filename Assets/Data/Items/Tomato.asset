@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Tomato
   m_EditorClassIdentifier: 
   description: A red fruit
-  thumbnail: {fileID: 21300000, guid: 145c55d12ea6c4544b913dbf88e0ba02, type: 3}
+  thumbnail: {fileID: 21300000, guid: 563c8da86bfc74c43b6ce628b7cf75b9, type: 3}
   gameModel: {fileID: 919132149155446097, guid: 00a280ccccce9d041b70f3c8737f8305, type: 3}
   modelPositionOffset: {x: 0, y: 0, z: 0}
   modelRotationOffset: {x: 0, y: 0, z: 0}

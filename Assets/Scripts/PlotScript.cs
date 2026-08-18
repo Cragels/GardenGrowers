@@ -33,8 +33,11 @@ public class PlotScript : MonoBehaviour, ITimeTracker
     GameTimeStamp timeWatered;
     GameTimeStamp timePlanted;
 
+    
+
     private void Start()
     {
+        TimeManager.Instance.RegisterTracker(this);
         interactable.messageProvider = GetCurrentMessage;
         RefreshVisuals();
     }

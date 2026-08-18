@@ -17,6 +17,7 @@ public class PlayerInputHandler : MonoBehaviour
     [SerializeField] private string inventory = "Inventory";
     [SerializeField] private string interact = "Interact";
     [SerializeField] private string pause = "Pause";
+    [SerializeField] private string debug = "DebugButton";
 
     //[Header("Mirror Rotation Action Names")]
     //[SerializeField] private string mirrorScroll = "MirrorScroll";
@@ -36,6 +37,7 @@ public class PlayerInputHandler : MonoBehaviour
     private InputAction inventoryAction;
     private InputAction interactAction;
     private InputAction pauseAction;
+    private InputAction debugAction;
 
     private InputAction rotateScrollAction;
     private InputAction rotateAxisSwitchAction;
@@ -65,6 +67,7 @@ public class PlayerInputHandler : MonoBehaviour
         interactAction = mapReference.FindAction(interact);
 
         pauseAction = mapReference.FindAction(pause);
+        debugAction = mapReference.FindAction(debug);
 
         //rotateScrollAction = mapReference.FindAction(mirrorScroll);
         //rotateAxisSwitchAction = mapReference.FindAction(mirrorAxisSwitch);
@@ -94,6 +97,8 @@ public class PlayerInputHandler : MonoBehaviour
         pauseAction.performed += inputInfo => UIManager.Instance.PauseMenuControle();
 
         inventoryAction.performed += inputInfo => UIManager.Instance.InventoryUIControl();
+
+        debugAction.performed += inputInfo => TimeManager.Instance.DebugAdvanceDay();
 
         //rotateAxisSwitchAction.performed += inputInfo => RotateAxisSwitchTriggered = true;
         //rotateAxisSwitchAction.canceled += inputInfo => RotateAxisSwitchTriggered = false;

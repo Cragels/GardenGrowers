@@ -41,7 +41,29 @@ public class TimeManager : MonoBehaviour
             Tick();
             yield return new WaitForSeconds(1/timeScale);
         }
+
+
        
+    }
+    public void DebugAdvanceDay()
+    {
+        int startDay = GameTimeStamp.ToAbsoluteDay(timeStamp);
+        while (GameTimeStamp.ToAbsoluteDay(timeStamp) == startDay)
+        {
+            Tick();
+        }
+
+        timeStamp.hour = 6;
+        timeStamp.minute = 0;
+
+        // Fire listeners once more so anything reading the corrected time
+        // (UI clock, sun position) reflects 6am immediately, not hour 0
+        foreach (ITimeTracker listener in listeners)
+        {
+            listener.ClockUpdate(timeStamp);
+        }
+        UpdateSunMovement();
+
     }
 
     public GameTimeStamp GetGameTimeStamp()

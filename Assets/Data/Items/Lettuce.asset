@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Lettuce
   m_EditorClassIdentifier: 
   description: A leafy vegtable
-  thumbnail: {fileID: 0}
+  thumbnail: {fileID: 21300000, guid: 3efd4e8d1de2daa49a0e7500dab03f59, type: 3}
   gameModel: {fileID: 0}
   modelPositionOffset: {x: 0, y: 0, z: 0}
   modelRotationOffset: {x: 0, y: 0, z: 0}

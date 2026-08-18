@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: WateringCan
   m_EditorClassIdentifier: 
   description: 
-  thumbnail: {fileID: 0}
-  gameModel: {fileID: 0}
+  thumbnail: {fileID: 21300000, guid: 753ff1b03741ff94d9dee38268d5bbe9, type: 3}
+  gameModel: {fileID: 5287945441969638966, guid: cf52bb6d0a5423644ab30de58653d7d4, type: 3}
+  modelPositionOffset: {x: 0, y: 0, z: 0}
+  modelRotationOffset: {x: 0, y: 0, z: 0}
   toolType: 3

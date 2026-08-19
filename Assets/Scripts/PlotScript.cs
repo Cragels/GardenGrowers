@@ -175,8 +175,13 @@ public class PlotScript : MonoBehaviour, ITimeTracker
         if ((plotStatus == PlotStatus.Planted || plotStatus == PlotStatus.Watered) && plantedSeed != null)
         {
             GameObject stagePrefab = plantedSeed.growthStagePrefabs[growthStageIndex];
+
             if (stagePrefab != null)
-                currentPlantModel = Instantiate(stagePrefab, plantModelAnchor.position, plantModelAnchor.rotation, plantModelAnchor);
+            {
+                currentPlantModel = Instantiate(stagePrefab, plantModelAnchor);
+                currentPlantModel.transform.localPosition = plantedSeed.plotModelPositionOffset;
+                currentPlantModel.transform.localRotation = Quaternion.Euler(plantedSeed.plotModelRotationOffset);
+            }
         }
         Debug.Log($"RefreshVisuals: status={plotStatus}, dugActive={dugVisual.activeSelf}, emptyActive={emptyVisual.activeSelf}");
     }

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48da393d1bc294e4aa6c2b3aad125339, type: 3}
   m_Name: Carrot Seeds
   m_EditorClassIdentifier: 
-  description: 
+  itemName: Carrot Seeds
+  description: Seeds for Carrots
   thumbnail: {fileID: 21300000, guid: 85e17b1ad5723e14eb39ee383b4f6be7, type: 3}
   gameModel: {fileID: 5088442839270373901, guid: 71b062a1917fb0c498acd82887a609a7, type: 3}
   modelPositionOffset: {x: 0, y: -0.15, z: -0.05}
@@ -26,6 +27,8 @@ MonoBehaviour:
   daysToGrow: 5
   cropToYield: {fileID: 11400000, guid: 5f8c118409066474da52e89da594e2b0, type: 2}
   growthStagePrefabs:
-  - {fileID: 5287945441969638966, guid: cf52bb6d0a5423644ab30de58653d7d4, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1983025664259899294, guid: 41c4a7d019a7d8442a780fa4d0c55571, type: 3}
+  - {fileID: 5860107145260219687, guid: 642ce6ae410a4594ba9204524320e799, type: 3}
+  - {fileID: 5539274431995232802, guid: e99fb5c20a7354c42acbb02e3160b894, type: 3}
+  plotModelPositionOffset: {x: 0, y: 0, z: 0.5}
+  plotModelRotationOffset: {x: 0, y: 0, z: 0}

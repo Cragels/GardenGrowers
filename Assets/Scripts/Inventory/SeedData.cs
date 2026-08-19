@@ -9,4 +9,8 @@ public class SeedData : EquipmentData
     public ItemData cropToYield;
 
     public GameObject[] growthStagePrefabs;
+
+    [Header("Plot Model Alignment")]
+    public Vector3 plotModelPositionOffset;
+    public Vector3 plotModelRotationOffset;
 }

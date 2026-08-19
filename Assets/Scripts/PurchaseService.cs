@@ -21,7 +21,7 @@ public class PurchaseService : MonoBehaviour
 
         if (!InventoryManager.Instance.SpendMoney(cost))
         {
-            Debug.Log("Not enough money for " + itemToSell);
+            Debug.Log("Not enough money for " + itemToSell.itemName);
             interactable.RefreshPrompt();
             return;
         }
@@ -40,6 +40,6 @@ public class PurchaseService : MonoBehaviour
 
     private string GetCurrentMessage()
     {
-        return $"Buy {itemToSell} x{quantity} - R{itemToSell.buyPrice * quantity}";
+        return $"Buy {itemToSell.itemName} x{quantity} - R{itemToSell.buyPrice * quantity}";
     }
 }

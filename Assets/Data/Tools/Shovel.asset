@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40a09364a6c009b4d8ec2918b89e69d2, type: 3}
   m_Name: Shovel
   m_EditorClassIdentifier: 
+  itemName: Shovel
   description: Digs stuff
   thumbnail: {fileID: 21300000, guid: d3adcc8b89bc9934bbde85d01e8b4d39, type: 3}
-  gameModel: {fileID: 919132149155446097, guid: 65d7ba5c66c5bf640993495fb7b05dc4, type: 3}
-  modelPositionOffset: {x: 0, y: -0.5, z: 0}
+  gameModel: {fileID: 8619035340365845520, guid: 0ac3856ba0ffd7946a3093b8a3c10077, type: 3}
+  modelPositionOffset: {x: 0, y: 0, z: -0.1}
   modelRotationOffset: {x: 45, y: -180, z: -180}
   isStackable: 0
   addAmount: 1

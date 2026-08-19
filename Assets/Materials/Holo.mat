@@ -26,16 +26,21 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _ScanLines:
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AlphaClip: 0
     - _DstBlend: 10
     - _DstBlendAlpha: 10
-    - _FresnalPower: 3
+    - _FresnalPower: 5.15
     - _QueueControl: 0
     - _SrcBlend: 5
     m_Colors:
-    - _FresnalColor: {r: 3.2490091, g: 3.2490091, b: 3.2490091, a: 1}
+    - _FresnalColor: {r: 3.448457, g: 3.448457, b: 3.448457, a: 0.76862746}
     - _ScanLineTilling: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

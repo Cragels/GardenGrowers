@@ -1,13 +1,14 @@
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     ItemData itemToDisplay;
 
     public Image itemDisplayImage;
-
+    [SerializeField] private TextMeshProUGUI quantityText;
     public enum InventoryType
     {
         Item, Tool
@@ -17,7 +18,7 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     int slotIndex;
 
-    public void Display(ItemData itemToDisplay)
+    public void Display(ItemData itemToDisplay, int quantity = 1)
     {
         if (itemToDisplay != null) 
         {
@@ -26,10 +27,15 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
             itemDisplayImage.gameObject.SetActive(true);
 
+            if (quantityText != null)
+                quantityText.text = quantity > 1 ? quantity.ToString() : "";
+
             return;
             
         }
+
         itemDisplayImage.gameObject.SetActive(false);
+        if (quantityText != null) quantityText.text = "";
 
     }
 

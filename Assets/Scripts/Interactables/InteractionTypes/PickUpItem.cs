@@ -11,7 +11,7 @@ public class PickUpItem : MonoBehaviour
 
     public void Pickup()
     {
-        bool added = InventoryManager.Instance.AddItem(itemToPickup, inventoryType);
+        bool added = InventoryManager.Instance.AddItem(itemToPickup, itemToPickup.addAmount, inventoryType);
 
         if (!added)
         {

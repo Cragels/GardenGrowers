@@ -76,7 +76,10 @@ public class PlotScript : MonoBehaviour, ITimeTracker
                         break;
                     }
 
+                    if (!InventoryManager.Instance.ConsumeEquippedTool()) break;
+
                     plantedSeed = seed;
+                    
                     growthStageIndex = 0;
                     lastProcessedDay = GameTimeStamp.ToAbsoluteDay(TimeManager.Instance.GetGameTimeStamp());
                     SwitchPlotStatus(PlotStatus.Planted);
@@ -87,12 +90,20 @@ public class PlotScript : MonoBehaviour, ITimeTracker
                 if (equipmentTool.toolType == EquipmentData.ToolType.WateringCan)
                     SwitchPlotStatus(PlotStatus.Watered);
                 else if (equipmentTool.toolType == EquipmentData.ToolType.Fert)
-                    AdvanceGrowth();
+                {
+                    if (InventoryManager.Instance.ConsumeEquippedTool())
+                        AdvanceGrowth();
+                }
+                    
                 break;
 
             case PlotStatus.Watered:
                 if (equipmentTool.toolType == EquipmentData.ToolType.Fert)
-                    AdvanceGrowth();
+                {
+                    if (InventoryManager.Instance.ConsumeEquippedTool())
+                        AdvanceGrowth();
+                }
+                    
                 break;
         }
 
@@ -146,7 +157,7 @@ public class PlotScript : MonoBehaviour, ITimeTracker
     }
     private void Harvest()
     {
-        InventoryManager.Instance.AddItem(plantedSeed.cropToYield, InventorySlot.InventoryType.Item);
+        InventoryManager.Instance.AddItem(plantedSeed.cropToYield, plantedSeed.cropToYield.addAmount, InventorySlot.InventoryType.Item);
         SwitchPlotStatus(PlotStatus.Empty);
     }
 

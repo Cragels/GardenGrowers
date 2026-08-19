@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour, ITimeTracker
 
     [Header("Status Bar")]
     public Image toolEquipSlot;
+    public TextMeshProUGUI equippedItemAmount;
 
     [Header("Time UI")]
     public TextMeshProUGUI timeText;
@@ -50,7 +51,6 @@ public class UIManager : MonoBehaviour, ITimeTracker
 
     public bool inSettings;
 
-
     private bool isPaused = false;
 
 
@@ -67,6 +67,7 @@ public class UIManager : MonoBehaviour, ITimeTracker
     {
         RenderInventory();
         AssignSlotIndexes();
+        UpdateMoney(InventoryManager.Instance.money);
 
         //Add UI Manager to list of objects TimeManager will notify
         TimeManager.Instance.RegisterTracker(this);
@@ -90,7 +91,7 @@ public class UIManager : MonoBehaviour, ITimeTracker
 
     public void UpdateMoney(int money)
     {
-        moneyText.text = "R " + money;
+        moneyText.text = "Money: R " + money;
     }
 
     public void FreezeGame()
@@ -210,26 +211,26 @@ public class UIManager : MonoBehaviour, ITimeTracker
 
         ItemData[] inventoryItemSlots = InventoryManager.Instance.items;
 
-        RenderInventoryPanel(inventoryToolSlots, toolSlots);
+        RenderInventoryPanel(inventoryToolSlots, InventoryManager.Instance.toolQuantities ,toolSlots);
 
-        RenderInventoryPanel(inventoryItemSlots, itemSlots);
+        RenderInventoryPanel(inventoryItemSlots, InventoryManager.Instance.itemQuantities, itemSlots);
 
-        toolHandSlot.Display(InventoryManager.Instance.equippedTool);
-        itemHandSlot.Display(InventoryManager.Instance.equippedItem);
+        toolHandSlot.Display(InventoryManager.Instance.equippedTool, InventoryManager.Instance.equippedToolQuantity);
+        itemHandSlot.Display(InventoryManager.Instance.equippedItem, InventoryManager.Instance.equippedItemQuantity);
 
         FirstPersonToolDisplay.Instance.EquipTool(InventoryManager.Instance.equippedTool);
 
         //get tool from inventory manager
         ItemData equippedTool = InventoryManager.Instance.equippedTool;
 
+
         if (equippedTool != null)
         {
             toolEquipSlot.sprite = equippedTool.thumbnail;
             
-
             toolEquipSlot.gameObject.SetActive(true);
 
-
+            equippedItemAmount.text = InventoryManager.Instance.equippedToolQuantity.ToString();
 
             return;
 
@@ -237,12 +238,12 @@ public class UIManager : MonoBehaviour, ITimeTracker
         toolEquipSlot.gameObject.SetActive(false);
     }
 
-    void RenderInventoryPanel(ItemData[] Slots, InventorySlot[] uiSlots)
+    void RenderInventoryPanel(ItemData[] Slots, int[] quantities, InventorySlot[] uiSlots)
     {
         ItemData[] inventoryToolSlot = InventoryManager.Instance.tools;
         for (int i = 0; i < uiSlots.Length; i++)
         {
-            uiSlots[i].Display(Slots[i]);
+            uiSlots[i].Display(Slots[i], quantities[i]);
         }
     }
 

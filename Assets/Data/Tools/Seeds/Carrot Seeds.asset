@@ -17,6 +17,11 @@ MonoBehaviour:
   gameModel: {fileID: 5088442839270373901, guid: 71b062a1917fb0c498acd82887a609a7, type: 3}
   modelPositionOffset: {x: 0, y: -0.15, z: -0.05}
   modelRotationOffset: {x: -90, y: -45, z: 0}
+  isStackable: 1
+  addAmount: 1
+  maxStack: 30
+  buyPrice: 20
+  sellPrice: 0
   toolType: 1
   daysToGrow: 5
   cropToYield: {fileID: 11400000, guid: 5f8c118409066474da52e89da594e2b0, type: 2}

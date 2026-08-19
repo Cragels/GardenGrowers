@@ -17,4 +17,9 @@ MonoBehaviour:
   gameModel: {fileID: 919132149155446097, guid: 65d7ba5c66c5bf640993495fb7b05dc4, type: 3}
   modelPositionOffset: {x: 0, y: -0.5, z: 0}
   modelRotationOffset: {x: 45, y: -180, z: -180}
+  isStackable: 0
+  addAmount: 1
+  maxStack: 30
+  buyPrice: 0
+  sellPrice: 0
   toolType: 0

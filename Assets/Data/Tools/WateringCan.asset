@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40a09364a6c009b4d8ec2918b89e69d2, type: 3}
   m_Name: WateringCan
   m_EditorClassIdentifier: 
+  itemName: Watering Can
   description: Waters plants!
-  thumbnail: {fileID: 21300000, guid: 753ff1b03741ff94d9dee38268d5bbe9, type: 3}
-  gameModel: {fileID: 5287945441969638966, guid: cf52bb6d0a5423644ab30de58653d7d4, type: 3}
-  modelPositionOffset: {x: 0, y: 0, z: 0}
-  modelRotationOffset: {x: 0, y: 0, z: 0}
+  thumbnail: {fileID: 21300000, guid: 0c6998f650a6328489d9b47071d89b6b, type: 3}
+  gameModel: {fileID: 7786774280199794818, guid: d3330a5f8e4253c4e879b4610d21c578, type: 3}
+  modelPositionOffset: {x: 0, y: -0.5, z: 0}
+  modelRotationOffset: {x: 0, y: -45, z: 0}
   isStackable: 0
   addAmount: 1
   maxStack: 30

@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a297be6f25b253d419be8447fc087c74, type: 3}
   m_Name: Lettuce
   m_EditorClassIdentifier: 
+  itemName: Lettuce
   description: A leafy vegtable
-  thumbnail: {fileID: 21300000, guid: 3efd4e8d1de2daa49a0e7500dab03f59, type: 3}
-  gameModel: {fileID: 0}
+  thumbnail: {fileID: 21300000, guid: 2a61a6b1b7f3e754387f98e9a841b63d, type: 3}
+  gameModel: {fileID: 919132149155446097, guid: ab10cd69190f0ec4d9ea8668bbae69c3, type: 3}
   modelPositionOffset: {x: 0, y: 0, z: 0}
   modelRotationOffset: {x: 0, y: 0, z: 0}
   isStackable: 1
-  addAmount: 4
+  addAmount: 3
   maxStack: 30
   buyPrice: 0
-  sellPrice: 0
+  sellPrice: 20

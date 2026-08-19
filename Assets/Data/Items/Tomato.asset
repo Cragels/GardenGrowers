@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a297be6f25b253d419be8447fc087c74, type: 3}
   m_Name: Tomato
   m_EditorClassIdentifier: 
+  itemName: Tomato
   description: A red fruit
   thumbnail: {fileID: 21300000, guid: 563c8da86bfc74c43b6ce628b7cf75b9, type: 3}
   gameModel: {fileID: 919132149155446097, guid: 00a280ccccce9d041b70f3c8737f8305, type: 3}
@@ -21,4 +22,4 @@ MonoBehaviour:
   addAmount: 5
   maxStack: 30
   buyPrice: 0
-  sellPrice: 0
+  sellPrice: 10

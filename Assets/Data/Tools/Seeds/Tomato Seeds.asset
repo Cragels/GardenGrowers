@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48da393d1bc294e4aa6c2b3aad125339, type: 3}
   m_Name: Tomato Seeds
   m_EditorClassIdentifier: 
+  itemName: Tomato Seeds
   description: Seeds for Tomato
   thumbnail: {fileID: 21300000, guid: 85e17b1ad5723e14eb39ee383b4f6be7, type: 3}
   gameModel: {fileID: 280136360459150491, guid: 6b38e93d5595ba54094b14b51fdf6a1f, type: 3}
@@ -26,6 +27,8 @@ MonoBehaviour:
   daysToGrow: 3
   cropToYield: {fileID: 11400000, guid: e514e89cf1334eb4cb3779b9d58630a3, type: 2}
   growthStagePrefabs:
-  - {fileID: 5287945441969638966, guid: cf52bb6d0a5423644ab30de58653d7d4, type: 3}
-  - {fileID: 919132149155446097, guid: 00a280ccccce9d041b70f3c8737f8305, type: 3}
-  - {fileID: 919132149155446097, guid: 1416d7e25c14e0246bf314bdebfe4a38, type: 3}
+  - {fileID: 4658697149955759820, guid: 20b847ccd462f224fbbec8272fa0cdb4, type: 3}
+  - {fileID: 4379785314063885045, guid: f6e2cb32fca7fcf489e2e2fbaeecda24, type: 3}
+  - {fileID: 4176950262233255629, guid: 4276dc9eac933de4094fee377c32e949, type: 3}
+  plotModelPositionOffset: {x: 0, y: 0, z: 0}
+  plotModelRotationOffset: {x: 0, y: 0, z: 0}

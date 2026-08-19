@@ -5,6 +5,8 @@ public class ItemData : ScriptableObject
 {
     public static ItemData Instance { get; set; }
 
+    public string itemName;
+
     public string description;
 
     //icon to be displayed in UI

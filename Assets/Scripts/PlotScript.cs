@@ -33,7 +33,13 @@ public class PlotScript : MonoBehaviour, ITimeTracker
     GameTimeStamp timeWatered;
     GameTimeStamp timePlanted;
 
-    
+    [Header("Particles")]
+    [SerializeField] private ParticleSystem dugParticles;
+    [SerializeField] private ParticleSystem plantedParticles;
+    [SerializeField] private ParticleSystem wateredParticles;
+    [SerializeField] private ParticleSystem harvestParticles;
+
+
 
     private void Start()
     {
@@ -154,10 +160,25 @@ public class PlotScript : MonoBehaviour, ITimeTracker
             growthStageIndex = 0;
         }
         RefreshVisuals();
+        PlayParticlesFor(statusToSwitch);
     }
+
+    private void PlayParticlesFor(PlotStatus status)
+    {
+        ParticleSystem toPlay = status switch
+        {
+            PlotStatus.Dug => dugParticles,
+            PlotStatus.Planted => plantedParticles,
+            PlotStatus.Watered => wateredParticles,
+            _ => null
+        };
+        toPlay?.Play();
+    }
+
     private void Harvest()
     {
         InventoryManager.Instance.AddItem(plantedSeed.cropToYield, plantedSeed.cropToYield.addAmount, InventorySlot.InventoryType.Item);
+        harvestParticles?.Play();
         SwitchPlotStatus(PlotStatus.Empty);
     }
 

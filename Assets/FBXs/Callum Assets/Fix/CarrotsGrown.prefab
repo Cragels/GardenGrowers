@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2088472265517451120}
   m_Layer: 0
   m_Name: CarrotsGrown
-  m_TagString: Untagged
+  m_TagString: Undefined
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -160,6 +160,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TomatoYoungFix 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9bb6c3a07d946a449a4a97ccc0ef8c4d, type: 3}
+      propertyPath: m_TagString
+      value: Plants
+      objectReference: {fileID: 0}
     - target: {fileID: 3302696841840191156, guid: 9bb6c3a07d946a449a4a97ccc0ef8c4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

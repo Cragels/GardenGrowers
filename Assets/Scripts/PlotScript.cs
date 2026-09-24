@@ -33,7 +33,13 @@ public class PlotScript : MonoBehaviour, ITimeTracker
     GameTimeStamp timeWatered;
     GameTimeStamp timePlanted;
 
-    
+    [Header("Particles")]
+    [SerializeField] private ParticleSystem dugParticles;
+    [SerializeField] private ParticleSystem plantedParticles;
+    [SerializeField] private ParticleSystem wateredParticles;
+    [SerializeField] private ParticleSystem harvestParticles;
+
+
 
     private void Start()
     {
@@ -154,11 +160,37 @@ public class PlotScript : MonoBehaviour, ITimeTracker
             growthStageIndex = 0;
         }
         RefreshVisuals();
+        PlayParticlesFor(statusToSwitch);
     }
+
+    private void PlayParticlesFor(PlotStatus status)
+    {
+        ParticleSystem toPlay = status switch
+        {
+            PlotStatus.Dug => dugParticles,
+            PlotStatus.Planted => plantedParticles,
+            PlotStatus.Watered => wateredParticles,
+            _ => null
+        };
+        toPlay?.Play();
+    }
+
     private void Harvest()
     {
         InventoryManager.Instance.AddItem(plantedSeed.cropToYield, plantedSeed.cropToYield.addAmount, InventorySlot.InventoryType.Item);
+        harvestParticles?.Play();
         SwitchPlotStatus(PlotStatus.Empty);
+    }
+
+    public void OnPlantEaten()
+    {
+        if (plotStatus != PlotStatus.Planted && plotStatus != PlotStatus.Watered)
+            return;
+
+        // if (IsFullyGrown()) return; - if we want to keep the fully grown crop safe
+
+        //eatenParticles?.Play(); 
+        SwitchPlotStatus(PlotStatus.Empty); // or PlotStatus.Dug, see note below
     }
 
     private void RefreshVisuals()
@@ -181,6 +213,7 @@ public class PlotScript : MonoBehaviour, ITimeTracker
                 currentPlantModel = Instantiate(stagePrefab, plantModelAnchor);
                 currentPlantModel.transform.localPosition = plantedSeed.plotModelPositionOffset;
                 currentPlantModel.transform.localRotation = Quaternion.Euler(plantedSeed.plotModelRotationOffset);
+                //currentPlantModel.tag = "Plants";
             }
         }
         Debug.Log($"RefreshVisuals: status={plotStatus}, dugActive={dugVisual.activeSelf}, emptyActive={emptyVisual.activeSelf}");

@@ -182,6 +182,17 @@ public class PlotScript : MonoBehaviour, ITimeTracker
         SwitchPlotStatus(PlotStatus.Empty);
     }
 
+    public void OnPlantEaten()
+    {
+        if (plotStatus != PlotStatus.Planted && plotStatus != PlotStatus.Watered)
+            return;
+
+        // if (IsFullyGrown()) return; - if we want to keep the fully grown crop safe
+
+        //eatenParticles?.Play(); 
+        SwitchPlotStatus(PlotStatus.Empty); // or PlotStatus.Dug, see note below
+    }
+
     private void RefreshVisuals()
     {
         emptyVisual.SetActive(plotStatus == PlotStatus.Empty);
@@ -202,6 +213,7 @@ public class PlotScript : MonoBehaviour, ITimeTracker
                 currentPlantModel = Instantiate(stagePrefab, plantModelAnchor);
                 currentPlantModel.transform.localPosition = plantedSeed.plotModelPositionOffset;
                 currentPlantModel.transform.localRotation = Quaternion.Euler(plantedSeed.plotModelRotationOffset);
+                //currentPlantModel.tag = "Plants";
             }
         }
         Debug.Log($"RefreshVisuals: status={plotStatus}, dugActive={dugVisual.activeSelf}, emptyActive={emptyVisual.activeSelf}");

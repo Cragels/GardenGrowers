@@ -33,6 +33,7 @@ public class BirdMovment : MonoBehaviour
 
     public bool FleeTargeted;
     Vector3 fleeTarget;
+    public float fleeDistance = 15f;
 
     void Awake()
     {
@@ -159,7 +160,7 @@ public class BirdMovment : MonoBehaviour
     {
         if (!TargetStillValid())
         {
-            currentState = BirdEnum.Flee;
+            StartFlee(targetTransform.position);
             return;
         }
 
@@ -167,29 +168,74 @@ public class BirdMovment : MonoBehaviour
 
         if (Vector3.Distance(transform.position, targetTransform.position) < 0.3f)
         {
+            eatTimer = 0f;
             currentState = BirdEnum.Eat;
         }
     }
 
     private void birdEat()
     {
+        
         if (!TargetStillValid())
         {
-            currentState = BirdEnum.Flee;
+            StartFlee(targetTransform.position);
             return;
         }
 
         eatTimer += Time.deltaTime;
         if (eatTimer >= eatDuration)
         {
+            Vector3 plantPos = targetTransform.position;
             targetPlot.OnPlantEaten();
             targetPlot = null;
             targetTransform = null;
-            currentState = BirdEnum.Flee;
+            StartFlee(plantPos);
         }
     }
 
+    private void StartFlee(Vector3 awayFrom)
+    {
+        Vector3 dir = transform.position - awayFrom;
+        dir.y = 0f;
+
+        // Player exactly on top of the bird: pick a random direction
+        if (dir.sqrMagnitude < 0.001f)
+        {
+            Vector2 r = Random.insideUnitCircle.normalized;
+            dir = new Vector3(r.x, 0f, r.y);
+        }
+        dir.Normalize();
+
+        fleeTarget = transform.position + dir * fleeDistance;
+        fleeTarget.y = centerPoint.position.y;
+
+        FleeTargeted = true;
+        eatTimer = 0f;
+        targetPlot = null;
+        targetTransform = null;
+        currentState = BirdEnum.Flee;
+    }
+
     private void birdFlee()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, fleeTarget, speed * Time.deltaTime);
+
+        if (Vector3.Distance(transform.position, fleeTarget) < 0.1f)
+        {
+            FleeTargeted = false;
+            idleTimer = 0f;
+            currentState = BirdEnum.Idle;
+        }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+            StartFlee(other.transform.position);
+    }
+
+
+    /*private void birdFlee()
     {
         float fleeHeight = centerPoint.position.y;
         //float playerX = PlayerPosition.x;
@@ -216,12 +262,12 @@ public class BirdMovment : MonoBehaviour
             fleeTarget = new Vector3(currentBirdX * FleeXDir, fleeHeight, currentBirdZ * FleeZDir);
             FleeTargeted = true;
         }
-        
 
 
-    }
 
-    
+        }*/
+
+
     private bool TargetStillValid() //checking
     {
         if (targetPlot == null || targetTransform == null)
@@ -231,7 +277,7 @@ public class BirdMovment : MonoBehaviour
                targetPlot.plotStatus == PlotScript.PlotStatus.Watered;
     }
 
-    public void OnTriggerEnter(Collider other)
+    /*public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -276,7 +322,7 @@ public class BirdMovment : MonoBehaviour
             currentState = BirdEnum.Flee;
             
         }
-    }
+    }*/
 
 }
 

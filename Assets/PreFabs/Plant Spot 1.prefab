@@ -713,6 +713,7 @@ MonoBehaviour:
   plantedParticles: {fileID: 2106498271862866160}
   wateredParticles: {fileID: 3491574404646544250}
   harvestParticles: {fileID: 3214923888685203289}
+  weedParticles: {fileID: 3214923888685203289}
   weedVisual: {fileID: 2613248884796384929}
   weedChancePerDay: 0.8
   weedsMessage: Pull the Weeds
@@ -771,7 +772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outlineMode: 0
+  outlineMode: 2
   outlineColor: {r: 1, g: 1, b: 1, a: 0}
   outlineWidth: 0
   precomputeOutline: 0
@@ -1152,7 +1153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3848305832246205277, guid: 8b7cb143ea24a044b87067f091433dd7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.83
+      value: 2.27
       objectReference: {fileID: 0}
     - target: {fileID: 3848305832246205277, guid: 8b7cb143ea24a044b87067f091433dd7, type: 3}
       propertyPath: m_LocalPosition.z

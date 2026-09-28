@@ -38,6 +38,7 @@ public class PlotScript : MonoBehaviour, ITimeTracker
     [SerializeField] private ParticleSystem plantedParticles;
     [SerializeField] private ParticleSystem wateredParticles;
     [SerializeField] private ParticleSystem harvestParticles;
+    [SerializeField] private ParticleSystem weedParticles;
 
     [Header("Weeds")]
     [SerializeField] private GameObject weedVisual;
@@ -82,7 +83,11 @@ public class PlotScript : MonoBehaviour, ITimeTracker
         {
             case PlotStatus.Empty:
                 if (equipmentTool.toolType == EquipmentData.ToolType.Shovel)
+                {
                     SwitchPlotStatus(PlotStatus.Dug);
+                    SFXManager.Instance.PlaySound("Dig");
+                }
+                   
                 break;
 
             case PlotStatus.Dug:
@@ -104,12 +109,17 @@ public class PlotScript : MonoBehaviour, ITimeTracker
                     growthStageIndex = 0;
                     lastProcessedDay = GameTimeStamp.ToAbsoluteDay(TimeManager.Instance.GetGameTimeStamp());
                     SwitchPlotStatus(PlotStatus.Planted);
+                    SFXManager.Instance.PlaySound("Plant");
                 }
                 break;
 
             case PlotStatus.Planted:
                 if (equipmentTool.toolType == EquipmentData.ToolType.WateringCan)
+                {
                     SwitchPlotStatus(PlotStatus.Watered);
+                    SFXManager.Instance.PlaySound("Water");
+                }
+                 
                 // Fert does nothing here: plot must be watered first
                 break;
 
@@ -192,6 +202,7 @@ public class PlotScript : MonoBehaviour, ITimeTracker
     {
         InventoryManager.Instance.AddItem(plantedSeed.cropToYield, plantedSeed.cropToYield.addAmount, InventorySlot.InventoryType.Item);
         harvestParticles?.Play();
+        SFXManager.Instance.PlaySound("Harvest");
         SwitchPlotStatus(PlotStatus.Empty);
     }
 
@@ -286,7 +297,8 @@ public class PlotScript : MonoBehaviour, ITimeTracker
     private void RemoveWeeds()
     {
         hasWeeds = false;
-        //weedPullParticles?.Play();
+        weedParticles?.Play();
+        SFXManager.Instance.PlaySound("Weeds");
         RefreshVisuals();
     }
 

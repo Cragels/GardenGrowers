@@ -23,10 +23,13 @@ public class PurchaseService : MonoBehaviour
         {
             Debug.Log("Not enough money for " + itemToSell.itemName);
             interactable.RefreshPrompt();
+            
             return;
         }
 
         bool added = InventoryManager.Instance.AddItem(itemToSell, quantity, inventoryType);
+
+        SFXManager.Instance.PlaySound("Buy");
 
         if (!added)
         {

@@ -44,6 +44,7 @@ public class SellAllInteractable : MonoBehaviour
         if (total <= 0)
         {
             interactable.RefreshPrompt();
+            
             return;
         }
 
@@ -59,5 +60,6 @@ public class SellAllInteractable : MonoBehaviour
         InventoryManager.Instance.AddMoney(total);
         UIManager.Instance.RenderInventory();
         interactable.RefreshPrompt();
+        SFXManager.Instance.PlaySound("Sell");
     }
 }

@@ -897,7 +897,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1068721668}
         m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
         m_MethodName: SetVolume
-        m_Mode: 0
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2215,7 +2215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09a97637c8d02a84fbc7a333b70ff2a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioMixer: {fileID: 24100000, guid: d4f750ba93c42c440ae353efe49df6e7, type: 2}
+  audioMixer: {fileID: 24100000, guid: aad8671503d12b048b03b50153acf321, type: 2}
+  volumeSlider: {fileID: 404843367}
   resolutionDropDown: {fileID: 1089168802}
 --- !u!1 &1085699434
 GameObject:

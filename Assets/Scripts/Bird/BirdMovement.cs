@@ -173,6 +173,7 @@ public class BirdMovment : MonoBehaviour
         {
             eatTimer = 0f;
             currentState = BirdEnum.Eat;
+            SFXManager.Instance.PlaySound("Bird");
         }
     }
 
@@ -185,6 +186,8 @@ public class BirdMovment : MonoBehaviour
             return;
         }
 
+        
+
         eatTimer += Time.deltaTime;
         if (eatTimer >= eatDuration)
         {
@@ -192,8 +195,14 @@ public class BirdMovment : MonoBehaviour
             targetPlot.OnPlantEaten();
             targetPlot = null;
             targetTransform = null;
+
+            
+
+
             StartFlee(plantPos);
         }
+
+        
     }
 
     private void StartFlee(Vector3 awayFrom)
@@ -206,6 +215,7 @@ public class BirdMovment : MonoBehaviour
         {
             Vector2 r = Random.insideUnitCircle.normalized;
             dir = new Vector3(r.x, 0f, r.y);
+            
         }
         dir.Normalize();
 
@@ -217,6 +227,7 @@ public class BirdMovment : MonoBehaviour
         targetPlot = null;
         targetTransform = null;
         currentState = BirdEnum.Flee;
+
     }
 
     private void birdFlee()
@@ -228,13 +239,18 @@ public class BirdMovment : MonoBehaviour
             FleeTargeted = false;
             idleTimer = 0f;
             currentState = BirdEnum.Idle;
+            
         }
     }
 
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
+        {
             StartFlee(other.transform.position);
+            SFXManager.Instance.PlaySound("Screech");
+        }
+           
     }
 
 

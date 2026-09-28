@@ -3,23 +3,26 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 //https://www.youtube.com/watch?v=YOaYQrN1oYQ
 
 public class SettingsMenu : MonoBehaviour
 {
     public AudioMixer audioMixer;
+    public Slider volumeSlider;
 
     //public Dropdown resolutionDropDown;
     public TMPro.TMP_Dropdown resolutionDropDown;
 
     Resolution[] resolutions;
-
-
+    private const string VolumeKey = "MasterVolume";
 
 
     private void Start()
     {
+        //audioMixer.SetFloat("Volume", PlayerPrefs.GetFloat("MasterVolume", 0f));
+
         resolutions = Screen.resolutions;
 
         resolutionDropDown.ClearOptions();
@@ -45,8 +48,22 @@ public class SettingsMenu : MonoBehaviour
         resolutionDropDown.value = currentResolutionIndex;
         resolutionDropDown.RefreshShownValue();
         Debug.Log(currentResolutionIndex);
+
+        float saved = PlayerPrefs.GetFloat(VolumeKey, 0f);
+        Debug.Log($"[Settings] Loaded volume: {saved} | slider range: {volumeSlider.minValue} to {volumeSlider.maxValue}");
+
+        volumeSlider.SetValueWithoutNotify(saved);      
+        
+        audioMixer.SetFloat("Volume", saved);
     }
 
+    public void SetVolume(float volume)
+    {
+        audioMixer.SetFloat("Volume", volume);
+        PlayerPrefs.SetFloat(VolumeKey, volume);
+        PlayerPrefs.Save();
+        Debug.Log($"[Settings] SAVED {volume} | readback {PlayerPrefs.GetFloat(VolumeKey, -999f)}");
+    }
 
 
     public void SetReslution(int resolutionIndex)
@@ -55,11 +72,7 @@ public class SettingsMenu : MonoBehaviour
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 
-    public void SetVolume(float volume)
-    {
-        audioMixer.SetFloat("Volume", volume);
-        Debug.Log(volume);
-    }
+   
 
     public void SetQuality(int qualityIndex)
     {

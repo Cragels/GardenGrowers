@@ -10,12 +10,13 @@ public class BirdMovment : MonoBehaviour
     public int speed;
 
     public float angle = 5f;
+    public float idleHeight = 20f;
 
     public BirdEnum currentState;
-    public BirdEnum previousState;
+   // public BirdEnum previousState;
 
 
-    public float searchDelay = 5f;
+    public float searchDelay = 20f;
     public string plantTag = "Plants";
     private float idleTimer;
     private PlotScript targetPlot;
@@ -24,36 +25,31 @@ public class BirdMovment : MonoBehaviour
     public float eatDuration = 5f;
     private float eatTimer;
 
-    public Transform player;
+    Vector3 PlayerPosition;
     public float fleeTriggerDistance = 4f;
-    public float fleeClearDistance = 6f;
-    public float fleeSpeed = 6f;
-    private BirdEnum stateBeforeFlee;
+    //private BirdEnum stateBeforeFlee;
+    public float FleeXDir;
+    public float FleeZDir;
 
+    public bool FleeTargeted;
+    Vector3 fleeTarget;
 
     void Awake()
     {
         currentState = BirdEnum.Idle;
-        currentState = BirdEnum.Idle;
+        //previousState = BirdEnum.Idle;
         idleTimer = 0f;
     }
 
     void Update()
     {
-        if (currentState != BirdEnum.Flee && player != null &&
-            Vector3.Distance(transform.position, player.position) < fleeTriggerDistance)
-        {
-            stateBeforeFlee = currentState;
-            currentState = BirdEnum.Flee;
-        }
 
-        bool enteredThisFrame = currentState != previousState;
-        previousState = currentState;
+        //bool enteredThisFrame = currentState != previousState;
+        //previousState = currentState;
 
         switch (currentState)
         {
             case BirdEnum.Idle:
-                if (enteredThisFrame) OnEnterIdle();
                 birdIdle();
                 break;
 
@@ -62,7 +58,6 @@ public class BirdMovment : MonoBehaviour
                 break;
 
             case BirdEnum.Eat:
-                if (enteredThisFrame) eatTimer = 0f;
                 birdEat();
                 break;
 
@@ -94,12 +89,6 @@ public class BirdMovment : MonoBehaviour
         }
     }*/
 
-    private void OnEnterIdle()
-    {
-        idleTimer = 0f;
-        targetPlot = null;
-        targetTransform = null;
-    }
 
     public void birdIdle() // Circle above 
     {
@@ -110,7 +99,7 @@ public class BirdMovment : MonoBehaviour
 
         //bool close = true;
 
-
+        
         //StartCoroutine(idleMove());
 
         float rad = angle * Mathf.Deg2Rad;
@@ -170,7 +159,7 @@ public class BirdMovment : MonoBehaviour
     {
         if (!TargetStillValid())
         {
-            currentState = BirdEnum.Idle;
+            currentState = BirdEnum.Flee;
             return;
         }
 
@@ -186,7 +175,7 @@ public class BirdMovment : MonoBehaviour
     {
         if (!TargetStillValid())
         {
-            currentState = BirdEnum.Idle;
+            currentState = BirdEnum.Flee;
             return;
         }
 
@@ -196,33 +185,40 @@ public class BirdMovment : MonoBehaviour
             targetPlot.OnPlantEaten();
             targetPlot = null;
             targetTransform = null;
-            currentState = BirdEnum.Idle;
+            currentState = BirdEnum.Flee;
         }
     }
 
     private void birdFlee()
     {
-        if (player == null)
+        float fleeHeight = centerPoint.position.y;
+        //float playerX = PlayerPosition.x;
+        //float playerY = PlayerPosition.z;
+
+        float currentBirdX = transform.position.x;
+        float currentBirdZ = transform.position.z;
+
+       
+        if (FleeTargeted)
         {
-            currentState = stateBeforeFlee;
-            return;
-        }
+            transform.position = Vector3.MoveTowards(transform.position, fleeTarget, speed * Time.deltaTime);
 
-        Vector3 away = (transform.position - player.position);
-        away.y = 0f;
-        away = away.sqrMagnitude > 0.001f ? away.normalized : transform.forward;
-
-        transform.position += away * fleeSpeed * Time.deltaTime;
-
-        if (Vector3.Distance(transform.position, player.position) > fleeClearDistance)
-        {
-            // Resume the interrupted behaviour if the target plant is still valid,
-            // otherwise fall back to idle.
-            if ((stateBeforeFlee == BirdEnum.Target || stateBeforeFlee == BirdEnum.Eat) && TargetStillValid())
-                currentState = BirdEnum.Target; // re-approach; eat timer restarts naturally
-            else
+            if (Vector3.Distance(transform.position, fleeTarget) < 0.1f)
+            {
+                FleeTargeted = false;
+                idleTimer = 0;
                 currentState = BirdEnum.Idle;
+
+            }
         }
+        else 
+        {
+            fleeTarget = new Vector3(currentBirdX * FleeXDir, fleeHeight, currentBirdZ * FleeZDir);
+            FleeTargeted = true;
+        }
+        
+
+
     }
 
     
@@ -234,6 +230,54 @@ public class BirdMovment : MonoBehaviour
         return targetPlot.plotStatus == PlotScript.PlotStatus.Planted ||
                targetPlot.plotStatus == PlotScript.PlotStatus.Watered;
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            PlayerPosition = other.transform.position;
+
+            float playerX = PlayerPosition.x;
+            float playerZ = PlayerPosition.z;
+
+            float birdX = transform.position.x;
+            float birdZ = transform.position.z;
+
+            float totalX = birdX - playerX;
+            float totalZ = birdZ - playerZ;
+
+            if (totalX > 0 && totalZ > 0) // These are for the bird to go away from the player
+            {
+                FleeXDir = -1.01f;
+                FleeZDir = -1.01f;
+            }
+            else if (totalX > 0 && totalZ < 0)
+            {
+                FleeXDir = -1.01f;
+                FleeZDir = 1.01f;
+            }
+            else if (totalX < 0 && totalZ > 0)
+            {
+                FleeXDir = 1.01f;
+                FleeZDir = -1.01f;
+            }
+            else if (totalX < 0 && totalZ < 0)
+            {
+                FleeXDir = 1.01f;
+                FleeZDir = 1.01f;
+            }
+           // else
+           // {
+             //   FleeXDir = 1f;
+               // FleeZDir = 1f;
+           // }
+
+
+            currentState = BirdEnum.Flee;
+            
+        }
+    }
+
 }
 
 

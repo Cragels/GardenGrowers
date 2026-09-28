@@ -2180,8 +2180,8 @@ GameObject:
   - component: {fileID: 95085833}
   - component: {fileID: 95085832}
   - component: {fileID: 95085831}
-  - component: {fileID: 95085830}
   - component: {fileID: 95085829}
+  - component: {fileID: 95085834}
   m_Layer: 0
   m_Name: TestBird
   m_TagString: Untagged
@@ -2205,38 +2205,15 @@ MonoBehaviour:
   centerPoint: {fileID: 476782748}
   speed: 5
   angle: 5
+  idleHeight: 20
   currentState: 0
-  previousState: 0
-  searchDelay: 5
+  searchDelay: 20
   plantTag: Plants
   eatDuration: 5
-  player: {fileID: 262798041}
   fleeTriggerDistance: 4
-  fleeClearDistance: 6
-  fleeSpeed: 6
---- !u!136 &95085830
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 95085828}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  FleeXDir: 0
+  FleeZDir: 0
+  FleeTargeted: 0
 --- !u!23 &95085831
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2305,6 +2282,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &95085834
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95085828}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 3.36
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &96137335 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e8be9fe3da9f0d840a37b9946bf387cc, type: 3}
@@ -6581,6 +6579,7 @@ GameObject:
   - component: {fileID: 262798042}
   - component: {fileID: 262798043}
   - component: {fileID: 262798044}
+  - component: {fileID: 262798045}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -6717,6 +6716,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerReach: 3
   playerInputHandler: {fileID: 1976462281}
+--- !u!136 &262798045
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262798037}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &262979544
 PrefabInstance:
   m_ObjectHideFlags: 0

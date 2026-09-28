@@ -40,10 +40,10 @@ public class TimeManager : MonoBehaviour
         {
             Tick();
             yield return new WaitForSeconds(1/timeScale);
-        }
+         }
+      
 
 
-       
     }
     public void DebugAdvanceDay()
     {
@@ -109,4 +109,10 @@ public class TimeManager : MonoBehaviour
     { 
         listeners.Remove(listener);
     }
+
+    public bool IsAtOrAfterHour(int hour)
+    {
+        return timeStamp.hour >= hour;
+    }
+
 }

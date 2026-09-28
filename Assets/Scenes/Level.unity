@@ -1328,6 +1328,12 @@ MonoBehaviour:
       m_Calls: []
   promptCanvas: {fileID: 978636567}
   promptText: {fileID: 1259884146}
+  requiresTime: 0
+  availableFromHour: 18
+  tooEarlyMessage: I can't sleep yet.
+  onTooEarly:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &45316658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2207,13 +2213,14 @@ MonoBehaviour:
   angle: 5
   idleHeight: 20
   currentState: 0
-  searchDelay: 20
+  searchDelay: 15
   plantTag: Plants
   eatDuration: 5
   fleeTriggerDistance: 4
   FleeXDir: 0
   FleeZDir: 0
   FleeTargeted: 0
+  fleeDistance: 15
 --- !u!23 &95085831
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2301,7 +2308,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 3.36
+  m_Radius: 1.85
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &96137335 stripped
 GameObject:
@@ -12541,6 +12548,12 @@ MonoBehaviour:
       m_Calls: []
   promptCanvas: {fileID: 377615417}
   promptText: {fileID: 1971535570}
+  requiresTime: 0
+  availableFromHour: 18
+  tooEarlyMessage: I can't sleep yet.
+  onTooEarly:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &473918006
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19154,6 +19167,12 @@ MonoBehaviour:
       m_Calls: []
   promptCanvas: {fileID: 304548436}
   promptText: {fileID: 408742161}
+  requiresTime: 0
+  availableFromHour: 18
+  tooEarlyMessage: I can't sleep yet.
+  onTooEarly:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &723949334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36308,6 +36327,12 @@ MonoBehaviour:
       m_Calls: []
   promptCanvas: {fileID: 743197165}
   promptText: {fileID: 142176460}
+  requiresTime: 1
+  availableFromHour: 18
+  tooEarlyMessage: "I can't sleep yet. \n(sleep after 18:00)"
+  onTooEarly:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1345961303
 GameObject:
   m_ObjectHideFlags: 0
@@ -40189,7 +40214,7 @@ MonoBehaviour:
     day: 0
     hour: 0
     minute: 0
-  timeScale: 1
+  timeScale: 6
   sunTransform: {fileID: 410087041}
 --- !u!1001 &1481214979
 PrefabInstance:
@@ -43871,6 +43896,12 @@ MonoBehaviour:
       m_Calls: []
   promptCanvas: {fileID: 832414039}
   promptText: {fileID: 1967838523}
+  requiresTime: 0
+  availableFromHour: 18
+  tooEarlyMessage: I can't sleep yet.
+  onTooEarly:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1612410899 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7447824994320820792, guid: d3330a5f8e4253c4e879b4610d21c578, type: 3}
@@ -44832,6 +44863,12 @@ MonoBehaviour:
       m_Calls: []
   promptCanvas: {fileID: 679740823}
   promptText: {fileID: 902481278}
+  requiresTime: 0
+  availableFromHour: 18
+  tooEarlyMessage: I can't sleep yet.
+  onTooEarly:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &1657971960
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45689,6 +45726,12 @@ MonoBehaviour:
       m_Calls: []
   promptCanvas: {fileID: 423299854}
   promptText: {fileID: 2034534218}
+  requiresTime: 0
+  availableFromHour: 18
+  tooEarlyMessage: I can't sleep yet.
+  onTooEarly:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!64 &1702853367
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -50947,6 +50990,12 @@ MonoBehaviour:
       m_Calls: []
   promptCanvas: {fileID: 1029785774}
   promptText: {fileID: 1345961305}
+  requiresTime: 0
+  availableFromHour: 18
+  tooEarlyMessage: I can't sleep yet.
+  onTooEarly:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &1917931103
 BoxCollider:
   m_ObjectHideFlags: 0

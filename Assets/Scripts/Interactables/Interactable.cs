@@ -32,6 +32,13 @@ public class Interactable : MonoBehaviour
 
     public System.Func<string> messageProvider;
 
+    [Header("Time Requirement")]
+    [SerializeField] private bool requiresTime;
+    [SerializeField, Range(0, 23)] private int availableFromHour = 18;
+    [SerializeField, TextArea] private string tooEarlyMessage = "I can't sleep yet.";
+
+    public UnityEvent onTooEarly;
+
     void Start()
     {
         outline = GetComponent<Outline>();
@@ -49,6 +56,9 @@ public class Interactable : MonoBehaviour
 
     private string GetCurrentMessage()
     {
+        if (!IsTimeRequirementMet())
+            return tooEarlyMessage;
+
         if (requiredTool == null)
             return message;
 
@@ -65,6 +75,12 @@ public class Interactable : MonoBehaviour
 
     public void Interact()
     {
+        if (!IsTimeRequirementMet())
+        {
+            onTooEarly.Invoke();
+            return;
+        }
+
         onInteraction.Invoke();
     }
 
@@ -87,5 +103,11 @@ public class Interactable : MonoBehaviour
     //void OnDestroy()
     //{
     //    Debug.LogWarning($"{name} (Interactable) destroyed at {Time.frameCount}", this);
-   // }
+    // }
+
+    private bool IsTimeRequirementMet()
+    {
+        if (!requiresTime) return true;
+        return TimeManager.Instance.IsAtOrAfterHour(availableFromHour);
+    }
 }

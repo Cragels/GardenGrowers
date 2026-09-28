@@ -35,6 +35,8 @@ public class BirdMovment : MonoBehaviour
     Vector3 fleeTarget;
     public float fleeDistance = 15f;
 
+    private Vector3 lastTargetPos;
+
     void Awake()
     {
         currentState = BirdEnum.Idle;
@@ -153,6 +155,7 @@ public class BirdMovment : MonoBehaviour
 
         targetPlot = plot;
         targetTransform = chosen.transform;
+        lastTargetPos = chosen.transform.position;
         currentState = BirdEnum.Target;
     }
 
@@ -160,7 +163,7 @@ public class BirdMovment : MonoBehaviour
     {
         if (!TargetStillValid())
         {
-            StartFlee(targetTransform.position);
+            StartFlee(lastTargetPos);
             return;
         }
 
@@ -178,7 +181,7 @@ public class BirdMovment : MonoBehaviour
         
         if (!TargetStillValid())
         {
-            StartFlee(targetTransform.position);
+            StartFlee(lastTargetPos);
             return;
         }
 

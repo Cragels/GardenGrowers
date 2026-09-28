@@ -39,6 +39,14 @@ public class PlotScript : MonoBehaviour, ITimeTracker
     [SerializeField] private ParticleSystem wateredParticles;
     [SerializeField] private ParticleSystem harvestParticles;
 
+    [Header("Weeds")]
+    [SerializeField] private GameObject weedVisual;
+    [SerializeField, Range(0f, 1f)] private float weedChancePerDay = 1f; 
+    [SerializeField] private string weedsMessage = "Pull the Weeds";
+    //[SerializeField] private ParticleSystem weedParticles;     
+    //[SerializeField] private ParticleSystem weedPullParticles; 
+
+    private bool hasWeeds;
 
 
     private void Start()
@@ -56,6 +64,13 @@ public class PlotScript : MonoBehaviour, ITimeTracker
         if (IsFullyGrown())
         {
             Harvest();
+            interactable.RefreshPrompt();
+            return;
+        }
+
+        if (hasWeeds)
+        {
+            RemoveWeeds();
             interactable.RefreshPrompt();
             return;
         }
@@ -95,21 +110,18 @@ public class PlotScript : MonoBehaviour, ITimeTracker
             case PlotStatus.Planted:
                 if (equipmentTool.toolType == EquipmentData.ToolType.WateringCan)
                     SwitchPlotStatus(PlotStatus.Watered);
-                else if (equipmentTool.toolType == EquipmentData.ToolType.Fert)
-                {
-                    if (InventoryManager.Instance.ConsumeEquippedTool())
-                        AdvanceGrowth();
-                }
-                    
+                // Fert does nothing here: plot must be watered first
                 break;
 
             case PlotStatus.Watered:
                 if (equipmentTool.toolType == EquipmentData.ToolType.Fert)
                 {
                     if (InventoryManager.Instance.ConsumeEquippedTool())
+                    {
                         AdvanceGrowth();
+                        TryGrowWeeds();
+                    }
                 }
-                    
                 break;
         }
 
@@ -158,6 +170,7 @@ public class PlotScript : MonoBehaviour, ITimeTracker
         {
             plantedSeed = null;
             growthStageIndex = 0;
+            hasWeeds = false;
         }
         RefreshVisuals();
         PlayParticlesFor(statusToSwitch);
@@ -198,6 +211,10 @@ public class PlotScript : MonoBehaviour, ITimeTracker
         emptyVisual.SetActive(plotStatus == PlotStatus.Empty);
         dugVisual.SetActive(plotStatus == PlotStatus.Dug);
 
+        if (weedVisual != null)
+            weedVisual.SetActive(hasWeeds &&
+                (plotStatus == PlotStatus.Planted || plotStatus == PlotStatus.Watered));
+
         if (currentPlantModel != null)
         {
             Destroy(currentPlantModel);
@@ -221,6 +238,7 @@ public class PlotScript : MonoBehaviour, ITimeTracker
 
     private string GetCurrentMessage()
     {
+        if (hasWeeds) return weedsMessage;
         switch (plotStatus)
         {
             case PlotStatus.Empty: return emptyMessage;
@@ -250,13 +268,48 @@ public class PlotScript : MonoBehaviour, ITimeTracker
 
         lastProcessedDay = currentDay;
 
-        if (plotStatus == PlotStatus.Watered)
+        if (plotStatus == PlotStatus.Watered && !hasWeeds)
             AdvanceGrowth(); // watered yesterday -> grows today
 
         if (!IsFullyGrown())
+        {
             plotStatus = PlotStatus.Planted; // watering lapses, needs re-watering
+
+            TryGrowWeeds();
+        }
+           
 
         interactable.RefreshPrompt();
         RefreshVisuals();
     }
+
+    private void RemoveWeeds()
+    {
+        hasWeeds = false;
+        //weedPullParticles?.Play();
+        RefreshVisuals();
+    }
+
+    private void SpawnWeeds()
+    {
+        hasWeeds = true;
+        //weedParticles?.Play();
+    }
+
+    private void TryGrowWeeds()
+    {
+        if (hasWeeds || IsFullyGrown()) return;
+
+        float roll = UnityEngine.Random.value;
+        Debug.Log($"Weed roll: {roll} vs chance {weedChancePerDay}");
+
+        if (roll < weedChancePerDay)
+        {
+            hasWeeds = true;
+            //weedParticles?.Play();
+            RefreshVisuals();
+            interactable.RefreshPrompt();
+        }
+    }
+
 }

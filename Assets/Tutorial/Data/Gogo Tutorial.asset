@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 983484a360b466b469155e0ad7a9790b, type: 3}
+  m_Name: Gogo Tutorial
+  m_EditorClassIdentifier: 
+  title: Gogo's Garden
+  steps:
+  - {fileID: 11400000, guid: 010d0b14fa27f2f4f9dfe044e0f430d2, type: 2}
+  - {fileID: 11400000, guid: bed9be2a5b0809a499193c21261ee0bf, type: 2}
+  - {fileID: 11400000, guid: a8aa59a2316683c4289517575e6419ff, type: 2}
+  - {fileID: 11400000, guid: fa369575254260e42a8e8178ac6556c8, type: 2}
+  - {fileID: 11400000, guid: f129221e7ce04aa4caf3e2f26528347b, type: 2}
+  - {fileID: 11400000, guid: f2d99a7f502cfbb4699d5c5954da3346, type: 2}
+  - {fileID: 11400000, guid: 2bba374f7fa55324baf88398cb91a528, type: 2}
+  - {fileID: 11400000, guid: 5f39a0f593aca2e4a9b71f44c4890f80, type: 2}
+  - {fileID: 11400000, guid: 52f1ac4c309316a409b77dca5d106660, type: 2}
+  - {fileID: 11400000, guid: 1c0ea2d6648e04c46bec0d5364092420, type: 2}
+  - {fileID: 11400000, guid: bfbef54b7e156e74d803e3666a14fcb2, type: 2}
+  - {fileID: 11400000, guid: b2ec802fda8fc2447b7800acd9143170, type: 2}
+  - {fileID: 11400000, guid: 1bf799c84d9e4334aaf54f01a0e48a8e, type: 2}
+  - {fileID: 11400000, guid: 91ec2f16f7dfe774c95ec72d1059ff28, type: 2}
+  - {fileID: 11400000, guid: 8900b2c739452a8418e97d69fd782d5c, type: 2}
+  - {fileID: 11400000, guid: fe64edbfcad45b049ae8c43c389b3852, type: 2}
+  - {fileID: 11400000, guid: 065c66d632b3f614f879fb9fb122d0a0, type: 2}
+  - {fileID: 11400000, guid: ab9db383f4e5d994bafeee1d42685ca2, type: 2}
+  - {fileID: 11400000, guid: bd6a148da34521e4596195c94de0e14e, type: 2}
+  - {fileID: 11400000, guid: 286787c389ee60e49b2b3614d8390eea, type: 2}

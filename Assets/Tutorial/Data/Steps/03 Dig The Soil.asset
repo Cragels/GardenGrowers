@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceced90a424c62e4fba0c940e4627a6f, type: 3}
+  m_Name: 03 Dig The Soil
+  m_EditorClassIdentifier: 
+  objective: Dig up a garden bed
+  designNote: Any bed counts, so players choose. The marker only suggests the nearest
+    one.
+  targetId: plot
+  gogo: 0
+  gogoTargetId: 
+  intro:
+    lines:
+    - text: See the rocks in that garden bed? Dig them out so the soil can breathe.
+      mood: 0
+      gesture: 3
+      holdSeconds: 0
+    focusCamera: 1
+    waitForInput: 1
+  success:
+    lines:
+    - text: Look at that soil! Soft and dark. Plants will love it.
+      mood: 2
+      gesture: 0
+      holdSeconds: 0
+    focusCamera: 0
+    waitForInput: 0
+  nudge:
+    lines:
+    - text: Walk up to a bed with rocks and dig.
+      mood: 0
+      gesture: 3
+      holdSeconds: 0
+    focusCamera: 0
+    waitForInput: 0
+  hints:
+  - key: E
+    action: Dig
+  hintTiming: 0
+  stuckSeconds: 15
+  highlightInBag: {fileID: 0}
+  completeWhen:
+    rid: 671328379574943857
+  skipIf:
+    rid: -2
+  failIf:
+    rid: -2
+  onFailGoTo: {fileID: 0}
+  onStart: []
+  afterIntro: []
+  onComplete: []
+  celebrate: 1
+  nextOverride: {fileID: 0}
+  endsTutorial: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 671328379574943857
+      type: {class: PlotStatusCondition, ns: GardenGrowers.Tutorial.Conditions, asm: Assembly-CSharp}
+      data:
+        atLeast: 1
+        plots: 1
+        onlyNewChanges: 0

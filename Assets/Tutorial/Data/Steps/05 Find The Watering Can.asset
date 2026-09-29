@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceced90a424c62e4fba0c940e4627a6f, type: 3}
+  m_Name: 05 Find The Watering Can
+  m_EditorClassIdentifier: 
+  objective: Find the watering can
+  designNote: 'Pure test: pick-up was already taught. Hints only if stuck.'
+  targetId: wateringCan
+  gogo: 0
+  gogoTargetId: 
+  intro:
+    lines:
+    - text: Plants are like us. No water, no life. My watering can is by the house.
+      mood: 0
+      gesture: 3
+      holdSeconds: 0
+    focusCamera: 0
+    waitForInput: 0
+  success:
+    lines: []
+    focusCamera: 0
+    waitForInput: 0
+  nudge:
+    lines:
+    - text: Look near the house for my watering can.
+      mood: 0
+      gesture: 3
+      holdSeconds: 0
+    focusCamera: 0
+    waitForInput: 0
+  hints:
+  - key: E
+    action: Pick up
+  hintTiming: 1
+  stuckSeconds: 12
+  highlightInBag: {fileID: 0}
+  completeWhen:
+    rid: 671328379574943853
+  skipIf:
+    rid: -2
+  failIf:
+    rid: -2
+  onFailGoTo: {fileID: 0}
+  onStart: []
+  afterIntro: []
+  onComplete: []
+  celebrate: 0
+  nextOverride: {fileID: 0}
+  endsTutorial: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 671328379574943853
+      type: {class: HasItemCondition, ns: GardenGrowers.Tutorial.Conditions, asm: Assembly-CSharp}
+      data:
+        item: {fileID: 11400000, guid: cd0ddef3bc61179449ec03f889c3f455, type: 2}
+        amount: 1

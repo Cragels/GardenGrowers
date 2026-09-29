@@ -1,0 +1,156 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceced90a424c62e4fba0c940e4627a6f, type: 3}
+  m_Name: 16 The Seed Tin
+  m_EditorClassIdentifier: 
+  objective: 
+  designNote: 'The hook: legacy and mystery. Mkhulu''s garden once fed the whole
+    street. The note sets up Phase 4.'
+  targetId: 
+  gogo: 3
+  gogoTargetId: 
+  intro:
+    lines:
+    - text: You did so well today, mzukulu. Now I want to show you something.
+      mood: 1
+      gesture: 0
+      holdSeconds: 0
+    - text: This old tin belonged to your grandfather. Mkhulu.
+      mood: 6
+      gesture: 0
+      holdSeconds: 0
+    focusCamera: 1
+    waitForInput: 1
+  success:
+    lines: []
+    focusCamera: 0
+    waitForInput: 0
+  nudge:
+    lines: []
+    focusCamera: 0
+    waitForInput: 0
+  hints: []
+  hintTiming: 2
+  stuckSeconds: 15
+  highlightInBag: {fileID: 0}
+  completeWhen:
+    rid: -2
+  skipIf:
+    rid: -2
+  failIf:
+    rid: -2
+  onFailGoTo: {fileID: 0}
+  onStart: []
+  afterIntro:
+  - rid: 671328379574943826
+  - rid: 671328379574943827
+  - rid: 671328379574943828
+  - rid: 671328379574943829
+  - rid: 671328379574943830
+  - rid: 671328379574943831
+  - rid: 671328379574943832
+  - rid: 671328379574943833
+  - rid: 671328379574943834
+  - rid: 671328379574943835
+  onComplete: []
+  celebrate: 0
+  nextOverride: {fileID: 0}
+  endsTutorial: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 671328379574943826
+      type: {class: LockPlayerAction, ns: GardenGrowers.Tutorial.Actions, asm: Assembly-CSharp}
+      data:
+        locked: 1
+    - rid: 671328379574943827
+      type: {class: StoryCardAction, ns: GardenGrowers.Tutorial.Actions, asm: Assembly-CSharp}
+      data:
+        title: Mkhulu's Seed Tin
+        body: An old, rusty tin. Inside are seeds you have never seen before, and
+          a folded piece of paper.
+        icon: {fileID: 21300000, guid: 85e17b1ad5723e14eb39ee383b4f6be7, type: 3}
+        waitForKey: 1
+        autoSeconds: 4
+    - rid: 671328379574943828
+      type: {class: GogoSayAction, ns: GardenGrowers.Tutorial.Actions, asm: Assembly-CSharp}
+      data:
+        lines:
+          lines:
+          - text: Long ago, before the rubbish came, Mkhulu grew a garden that fed
+              our whole street.
+            mood: 3
+            gesture: 0
+            holdSeconds: 0
+          - text: No child went to bed hungry. Not one.
+            mood: 3
+            gesture: 0
+            holdSeconds: 0
+          - text: These are his seeds. You won't find them in any shop.
+            mood: 4
+            gesture: 0
+            holdSeconds: 0
+          - text: And look... he left a note.
+            mood: 4
+            gesture: 0
+            holdSeconds: 0
+          focusCamera: 1
+          waitForInput: 1
+        waitUntilFinished: 1
+    - rid: 671328379574943829
+      type: {class: StoryCardAction, ns: GardenGrowers.Tutorial.Actions, asm: Assembly-CSharp}
+      data:
+        title: Mkhulu's Note
+        body: <i>"Plant them where the water sleeps."</i>
+        icon: {fileID: 0}
+        waitForKey: 1
+        autoSeconds: 4
+    - rid: 671328379574943830
+      type: {class: GogoSayAction, ns: GardenGrowers.Tutorial.Actions, asm: Assembly-CSharp}
+      data:
+        lines:
+          lines:
+          - text: I never understood what it meant.
+            mood: 5
+            gesture: 6
+            holdSeconds: 0
+          - text: But you, my clever child... I think you can find out.
+            mood: 1
+            gesture: 1
+            holdSeconds: 0
+          focusCamera: 1
+          waitForInput: 1
+        waitUntilFinished: 1
+    - rid: 671328379574943831
+      type: {class: BannerAction, ns: GardenGrowers.Tutorial.Actions, asm: Assembly-CSharp}
+      data:
+        text: 'NEW GOAL: Find Mkhulu''s lost garden'
+        seconds: 4
+        playSound: 1
+    - rid: 671328379574943832
+      type: {class: WaitAction, ns: GardenGrowers.Tutorial.Actions, asm: Assembly-CSharp}
+      data:
+        seconds: 2.5
+    - rid: 671328379574943833
+      type: {class: RestoreClockSpeedAction, ns: GardenGrowers.Tutorial.Actions, asm: Assembly-CSharp}
+      data: 
+    - rid: 671328379574943834
+      type: {class: RestoreBirdAction, ns: GardenGrowers.Tutorial.Actions, asm: Assembly-CSharp}
+      data: 
+    - rid: 671328379574943835
+      type: {class: EndTutorialAction, ns: GardenGrowers.Tutorial.Actions, asm: Assembly-CSharp}
+      data:
+        title: GARDEN GROWERS
+        subtitle: To be continued...
+        nextScene: MainMenu

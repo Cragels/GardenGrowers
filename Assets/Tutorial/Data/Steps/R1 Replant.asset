@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceced90a424c62e4fba0c940e4627a6f, type: 3}
+  m_Name: R1 Replant
+  m_EditorClassIdentifier: 
+  objective: Plant again
+  designNote: 'Safe failure: Gogo comforts the player and tops up seeds and compost.
+    Teaches resilience.'
+  targetId: '@activePlot'
+  gogo: 0
+  gogoTargetId: 
+  intro:
+    lines:
+    - text: Eish... the bird got them. It happens to every farmer.
+      mood: 6
+      gesture: 6
+      holdSeconds: 0
+    - text: But a farmer never gives up. Let's plant again. I'll keep watch this
+        time!
+      mood: 1
+      gesture: 0
+      holdSeconds: 0
+    focusCamera: 1
+    waitForInput: 1
+  success:
+    lines:
+    - text: That's the spirit!
+      mood: 3
+      gesture: 0
+      holdSeconds: 0
+    focusCamera: 0
+    waitForInput: 0
+  nudge:
+    lines: []
+    focusCamera: 0
+    waitForInput: 0
+  hints:
+  - key: E
+    action: Dig
+  - key: Tab
+    action: Hold the seeds
+  - key: E
+    action: Plant
+  hintTiming: 1
+  stuckSeconds: 10
+  highlightInBag: {fileID: 0}
+  completeWhen:
+    rid: 671328379574943812
+  skipIf:
+    rid: -2
+  failIf:
+    rid: -2
+  onFailGoTo: {fileID: 0}
+  onStart:
+  - rid: 671328379574943813
+  - rid: 671328379574943814
+  - rid: 671328379574943815
+  afterIntro: []
+  onComplete: []
+  celebrate: 0
+  nextOverride: {fileID: 0}
+  endsTutorial: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 671328379574943812
+      type: {class: PlotStatusCondition, ns: GardenGrowers.Tutorial.Conditions, asm: Assembly-CSharp}
+      data:
+        atLeast: 2
+        plots: 1
+        onlyNewChanges: 0
+    - rid: 671328379574943813
+      type: {class: HideBirdAction, ns: GardenGrowers.Tutorial.Actions, asm: Assembly-CSharp}
+      data:
+        delay: 0
+        dontWait: 1
+    - rid: 671328379574943814
+      type: {class: TopUpItemAction, ns: GardenGrowers.Tutorial.Actions, asm: Assembly-CSharp}
+      data:
+        item: {fileID: 11400000, guid: f2ad4317c5c7df14f8bc9afbfb53eab9, type: 2}
+        atLeast: 1
+        showPopup: 1
+    - rid: 671328379574943815
+      type: {class: TopUpItemAction, ns: GardenGrowers.Tutorial.Actions, asm: Assembly-CSharp}
+      data:
+        item: {fileID: 11400000, guid: c9a872dc3617d7a46bb8260ae3cde683, type: 2}
+        atLeast: 2
+        showPopup: 1

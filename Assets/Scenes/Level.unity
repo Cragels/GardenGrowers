@@ -14765,6 +14765,7 @@ Transform:
   - {fileID: 1471009795}
   - {fileID: 1129391911}
   - {fileID: 1480364457}
+  - {fileID: 1422033063}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &568147510
@@ -26497,7 +26498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cd1172afb021674687c3712ed445089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsetFromParent: {x: -0.8, y: 0.5, z: 0}
+  offsetFromParent: {x: -1, y: 0.5, z: 0}
 --- !u!114 &978636570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27469,7 +27470,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1029785774}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.2949983}
+  m_LocalPosition: {x: 0, y: 0, z: -0.293}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27479,7 +27480,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.14100014}
+  m_AnchoredPosition: {x: -0, y: 0.135}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1029785776
@@ -27494,7 +27495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cd1172afb021674687c3712ed445089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsetFromParent: {x: 0, y: 0.5, z: -0.2}
+  offsetFromParent: {x: 0, y: 0.5, z: 0}
 --- !u!114 &1029785777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29581,14 +29582,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 446107013}
     m_Modifications:
-    - target: {fileID: 4021089234740915384, guid: 483d4181e420cf54ebe0f9b35b91a0cc, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5113051259800571558, guid: 483d4181e420cf54ebe0f9b35b91a0cc, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5350179170753157211, guid: 483d4181e420cf54ebe0f9b35b91a0cc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.184
@@ -34632,7 +34625,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -50}
-  m_SizeDelta: {x: 300, y: 100}
+  m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1281539738
 MonoBehaviour:
@@ -34654,7 +34647,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Items
+  m_text: 'Sellable Items
 
 '
   m_isRightToLeft: 0
@@ -36441,10 +36434,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1029785775}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.49754614, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 2}
+  m_AnchoredPosition: {x: 0.0024538636, y: 0}
+  m_SizeDelta: {x: 9.995092, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1345961305
 MonoBehaviour:
@@ -38600,11 +38593,11 @@ Transform:
   m_GameObject: {fileID: 1422033062}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.628265, y: -1.8080063, z: 16.183716}
+  m_LocalPosition: {x: -299.7898, y: -50.741093, z: 317.54974}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 567953663}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1422033064
 AudioSource:
@@ -38619,7 +38612,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -38720,7 +38713,7 @@ MonoBehaviour:
   - key: Dig
     clip: {fileID: 8300000, guid: 09e0e0b004a3cdb4585a6be676497aea, type: 3}
   - key: Water
-    clip: {fileID: 8300000, guid: 603e42255f3755f4d9baf73c91c9bfaf, type: 3}
+    clip: {fileID: 8300000, guid: 36b9ec149fd60594282ea20e7cbdb784, type: 3}
   - key: Plant
     clip: {fileID: 8300000, guid: 14d4cee2e59a133458037be83aa9ca19, type: 3}
   - key: Bird
@@ -41165,6 +41158,10 @@ PrefabInstance:
     - target: {fileID: 7936337115959209584, guid: 483d4181e420cf54ebe0f9b35b91a0cc, type: 3}
       propertyPath: m_Name
       value: Plant Spot (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9059849178947614674, guid: 483d4181e420cf54ebe0f9b35b91a0cc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -57394,7 +57391,6 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 898590238}
   - {fileID: 492007485}
-  - {fileID: 1422033063}
   - {fileID: 567953663}
   - {fileID: 1048715750}
   - {fileID: 262798041}

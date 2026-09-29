@@ -23,7 +23,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void Level1()
     {
-        PlayGame("Level");
+        PlayGame("Tutorial");
     }
     public void Level2()
     {

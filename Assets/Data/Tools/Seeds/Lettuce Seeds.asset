@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Lettuce Seeds
   description: Seeds for Lettuce
   thumbnail: {fileID: 21300000, guid: 85e17b1ad5723e14eb39ee383b4f6be7, type: 3}
-  gameModel: {fileID: 1321040875416270600, guid: f85bbc96de6e2744bb50dc67c4cbc8f7, type: 3}
+  gameModel: {fileID: 3741824506293308724, guid: b28afd47893fb044ab58881a4ec60a29, type: 3}
   modelPositionOffset: {x: 0, y: -0.15, z: -0.05}
   modelRotationOffset: {x: -90, y: -45, z: 0}
   isStackable: 1
@@ -32,3 +32,4 @@ MonoBehaviour:
   - {fileID: 8369580625748128332, guid: 6f978303bfa200c42aed92f1d54f2423, type: 3}
   plotModelPositionOffset: {x: 0, y: 0, z: 0}
   plotModelRotationOffset: {x: 90, y: 0, z: 0}
+  IsSpecialSeed: 0

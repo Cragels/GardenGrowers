@@ -102,6 +102,12 @@ public class PlotScript : MonoBehaviour, ITimeTracker
                         break;
                     }
 
+                    if (seed.IsSpecialSeed)
+                    {
+                        Debug.Log("This seed can only be planted in a special plot.");
+                        break;
+                    }
+
                     if (!InventoryManager.Instance.ConsumeEquippedTool()) break;
 
                     plantedSeed = seed;

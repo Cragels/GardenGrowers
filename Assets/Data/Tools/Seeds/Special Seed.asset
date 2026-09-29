@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Grandpa's Seed
   description: An old seed packet from Granny.
   thumbnail: {fileID: 21300000, guid: 85e17b1ad5723e14eb39ee383b4f6be7, type: 3}
-  gameModel: {fileID: 2848572939154259868, guid: 2010e601f35966d419a8aaf270a806a5, type: 3}
+  gameModel: {fileID: 6373163703826983769, guid: c0bbe4f3aa9a11444b59123e4da33eef, type: 3}
   modelPositionOffset: {x: 0, y: -0.15, z: -0.05}
   modelRotationOffset: {x: -90, y: -45, z: 0}
   isStackable: 1

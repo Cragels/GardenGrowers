@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Carrot Seeds
   description: Seeds for Carrots
   thumbnail: {fileID: 21300000, guid: 85e17b1ad5723e14eb39ee383b4f6be7, type: 3}
-  gameModel: {fileID: 5088442839270373901, guid: 71b062a1917fb0c498acd82887a609a7, type: 3}
+  gameModel: {fileID: 5908121532228948771, guid: 7ccb0dab10389f14f9e047af9823a321, type: 3}
   modelPositionOffset: {x: 0, y: -0.15, z: -0.05}
   modelRotationOffset: {x: -90, y: -45, z: 0}
   isStackable: 1
@@ -32,3 +32,4 @@ MonoBehaviour:
   - {fileID: 5539274431995232802, guid: e99fb5c20a7354c42acbb02e3160b894, type: 3}
   plotModelPositionOffset: {x: 0, y: 0, z: 0.5}
   plotModelRotationOffset: {x: 0, y: 0, z: 0}
+  IsSpecialSeed: 0

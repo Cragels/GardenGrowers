@@ -79,7 +79,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2176128804670111847}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -284,7 +284,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6554233802136251460}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -294,7 +294,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1.731}
+  m_AnchoredPosition: {x: 0, y: 1}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &4496168438220947611
@@ -372,7 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cd1172afb021674687c3712ed445089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsetFromParent: {x: 0, y: 1.5, z: 0.5}
+  offsetFromParent: {x: 0, y: 1, z: -1.8}
 --- !u!1 &7370144644213952996
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,9 +629,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8614556488356197622}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.29, y: 0.537, z: 0.123}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.7566, y: 1.7566, z: 1.7566}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7656028480732597025}
@@ -710,20 +710,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plotStatus: 0
   interactable: {fileID: 4094885299783441246}
-  plantModelAnchor: {fileID: 0}
-  dugVisual: {fileID: 0}
-  emptyVisual: {fileID: 0}
+  plantModelAnchor: {fileID: 7656028480732597025}
+  dugVisual: {fileID: 764953770524441020}
+  emptyVisual: {fileID: 558839161886318722}
   emptyMessage: Dig with a Shovel
   dugMessage: Plant a Special Seed
   plantedMessage: Needs Watering
   wateredMessage: Growing...
-  fullyGrownMessage: Fully Grown
-  dugParticles: {fileID: 0}
-  plantedParticles: {fileID: 0}
-  wateredParticles: {fileID: 0}
-  weedParticles: {fileID: 0}
-  weedVisual: {fileID: 0}
-  weedChancePerDay: 1
+  fullyGrownMessage: Incredible...
+  dugParticles: {fileID: 8946486650753391794}
+  plantedParticles: {fileID: 6759042413275082259}
+  wateredParticles: {fileID: 5011528314091990492}
+  weedParticles: {fileID: 6759042413275082259}
+  weedVisual: {fileID: 321602984446585973}
+  weedChancePerDay: 0.6
   weedsMessage: Pull the Weeds
 --- !u!114 &4094885299783441246
 MonoBehaviour:
@@ -745,8 +745,8 @@ MonoBehaviour:
   onInteraction:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlotScript, Assembly-CSharp
+      - m_Target: {fileID: 5435466534818415563}
+        m_TargetAssemblyTypeName: SpecialPlotScript, Assembly-CSharp
         m_MethodName: Interact
         m_Mode: 1
         m_Arguments:
@@ -805,7 +805,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1.2
   m_Height: 2.37
   m_Direction: 1
   m_Center: {x: 0, y: 0.69, z: 0}
@@ -973,6 +973,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f25469f8f786e2a4f96d13d1f38096c8, type: 3}
+--- !u!1 &558839161886318722 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f25469f8f786e2a4f96d13d1f38096c8, type: 3}
+  m_PrefabInstance: {fileID: 792647347682319827}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &903734706237864504 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f25469f8f786e2a4f96d13d1f38096c8, type: 3}
@@ -1000,7 +1005,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3848305832246205277, guid: 8b7cb143ea24a044b87067f091433dd7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.27
+      value: 1.284
       objectReference: {fileID: 0}
     - target: {fileID: 3848305832246205277, guid: 8b7cb143ea24a044b87067f091433dd7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1042,6 +1047,11 @@ PrefabInstance:
 --- !u!4 &1678507273720688887 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3848305832246205277, guid: 8b7cb143ea24a044b87067f091433dd7, type: 3}
+  m_PrefabInstance: {fileID: 2462533015643794346}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &5011528314091990492 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7467015220701775478, guid: 8b7cb143ea24a044b87067f091433dd7, type: 3}
   m_PrefabInstance: {fileID: 2462533015643794346}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2536323648111091548
@@ -1110,6 +1120,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2742210576091483712, guid: b407f29ea5506cb4a86ceeaa36b95671, type: 3}
   m_PrefabInstance: {fileID: 2536323648111091548}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &8946486650753391794 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6852960064844301294, guid: b407f29ea5506cb4a86ceeaa36b95671, type: 3}
+  m_PrefabInstance: {fileID: 2536323648111091548}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4420192324619342211
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1170,6 +1185,11 @@ PrefabInstance:
 --- !u!4 &132427149071360774 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4359999330054845061, guid: e2ee70f2db04d5d4491cd07863a016cf, type: 3}
+  m_PrefabInstance: {fileID: 4420192324619342211}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &764953770524441020 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4020031006532462655, guid: e2ee70f2db04d5d4491cd07863a016cf, type: 3}
   m_PrefabInstance: {fileID: 4420192324619342211}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5087856680513831475
@@ -1240,5 +1260,10 @@ PrefabInstance:
 --- !u!4 &835682187934993739 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5549351957138542456, guid: 14d1905b19f769b4b86d5126942c10df, type: 3}
+  m_PrefabInstance: {fileID: 5087856680513831475}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6759042413275082259 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1970118069450664992, guid: 14d1905b19f769b4b86d5126942c10df, type: 3}
   m_PrefabInstance: {fileID: 5087856680513831475}
   m_PrefabAsset: {fileID: 0}

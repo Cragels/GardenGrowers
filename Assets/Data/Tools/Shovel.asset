@@ -15,9 +15,9 @@ MonoBehaviour:
   itemName: Shovel
   description: Digs stuff
   thumbnail: {fileID: 21300000, guid: d3adcc8b89bc9934bbde85d01e8b4d39, type: 3}
-  gameModel: {fileID: 8619035340365845520, guid: 0ac3856ba0ffd7946a3093b8a3c10077, type: 3}
-  modelPositionOffset: {x: 0, y: 0, z: -0.1}
-  modelRotationOffset: {x: 45, y: -180, z: -180}
+  gameModel: {fileID: 2884709949139750691, guid: edc75b2d9437edd47b3ce5e5dd386c1c, type: 3}
+  modelPositionOffset: {x: 0, y: -0.1, z: -0.2}
+  modelRotationOffset: {x: -45, y: 0, z: -180}
   isStackable: 0
   addAmount: 1
   maxStack: 30

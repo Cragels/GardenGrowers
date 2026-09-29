@@ -13,4 +13,6 @@ public class SeedData : EquipmentData
     [Header("Plot Model Alignment")]
     public Vector3 plotModelPositionOffset;
     public Vector3 plotModelRotationOffset;
+
+    public bool IsSpecialSeed = false;
 }

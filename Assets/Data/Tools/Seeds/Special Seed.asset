@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48da393d1bc294e4aa6c2b3aad125339, type: 3}
+  m_Name: Special Seed
+  m_EditorClassIdentifier: 
+  itemName: Grandpa's Seed
+  description: An old seed packet from Granny.
+  thumbnail: {fileID: 21300000, guid: 85e17b1ad5723e14eb39ee383b4f6be7, type: 3}
+  gameModel: {fileID: 919132149155446097, guid: 3b558d4d996a06f469666ba379f0f275, type: 3}
+  modelPositionOffset: {x: 0, y: -0.15, z: -0.05}
+  modelRotationOffset: {x: -90, y: -45, z: 0}
+  isStackable: 1
+  addAmount: 1
+  maxStack: 1
+  buyPrice: 0
+  sellPrice: 0
+  toolType: 1
+  daysToGrow: 25
+  cropToYield: {fileID: 0}
+  growthStagePrefabs:
+  - {fileID: 4658697149955759820, guid: 20b847ccd462f224fbbec8272fa0cdb4, type: 3}
+  - {fileID: 5494239960157703405, guid: f43dbd8ddacff084287ba3529bf49b29, type: 3}
+  - {fileID: 5494239960157703405, guid: f43dbd8ddacff084287ba3529bf49b29, type: 3}
+  - {fileID: 5494239960157703405, guid: f43dbd8ddacff084287ba3529bf49b29, type: 3}
+  - {fileID: 5494239960157703405, guid: f43dbd8ddacff084287ba3529bf49b29, type: 3}
+  - {fileID: 7904984762039192671, guid: 10efc384a59446d4eb7852108c5e3071, type: 3}
+  - {fileID: 7904984762039192671, guid: 10efc384a59446d4eb7852108c5e3071, type: 3}
+  - {fileID: 7904984762039192671, guid: 10efc384a59446d4eb7852108c5e3071, type: 3}
+  - {fileID: 7904984762039192671, guid: 10efc384a59446d4eb7852108c5e3071, type: 3}
+  - {fileID: 3213463405221988644, guid: 5c3f68efb9310804bbd307a62d841dad, type: 3}
+  - {fileID: 3213463405221988644, guid: 5c3f68efb9310804bbd307a62d841dad, type: 3}
+  - {fileID: 3213463405221988644, guid: 5c3f68efb9310804bbd307a62d841dad, type: 3}
+  - {fileID: 3213463405221988644, guid: 5c3f68efb9310804bbd307a62d841dad, type: 3}
+  - {fileID: 8105197796779542523, guid: cf63c2f4d9d90c347bfb33c6628bce6b, type: 3}
+  - {fileID: 8105197796779542523, guid: cf63c2f4d9d90c347bfb33c6628bce6b, type: 3}
+  - {fileID: 8105197796779542523, guid: cf63c2f4d9d90c347bfb33c6628bce6b, type: 3}
+  - {fileID: 9175051773810107106, guid: 616a4fa96395aab4cb03902b9aeb9456, type: 3}
+  - {fileID: 9175051773810107106, guid: 616a4fa96395aab4cb03902b9aeb9456, type: 3}
+  - {fileID: 9175051773810107106, guid: 616a4fa96395aab4cb03902b9aeb9456, type: 3}
+  - {fileID: 1022636838419636303, guid: d98b3be4c8eafcb439b89de2479cd3ed, type: 3}
+  - {fileID: 1022636838419636303, guid: d98b3be4c8eafcb439b89de2479cd3ed, type: 3}
+  - {fileID: 1022636838419636303, guid: d98b3be4c8eafcb439b89de2479cd3ed, type: 3}
+  - {fileID: 1022636838419636303, guid: d98b3be4c8eafcb439b89de2479cd3ed, type: 3}
+  - {fileID: 1022636838419636303, guid: d98b3be4c8eafcb439b89de2479cd3ed, type: 3}
+  - {fileID: 1022636838419636303, guid: d98b3be4c8eafcb439b89de2479cd3ed, type: 3}
+  - {fileID: 258602976779902309, guid: cf026a1e7900fd14c9f4bce8076163cb, type: 3}
+  plotModelPositionOffset: {x: 0, y: 0, z: 0}
+  plotModelRotationOffset: {x: 0, y: 0, z: 0}
+  IsSpecialSeed: 1

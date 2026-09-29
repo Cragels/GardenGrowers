@@ -27,4 +27,5 @@ public class ItemData : ScriptableObject
     [Header("Economy")]
     public int buyPrice;
     public int sellPrice;
+
 }

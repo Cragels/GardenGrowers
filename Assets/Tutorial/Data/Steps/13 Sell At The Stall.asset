@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceced90a424c62e4fba0c940e4627a6f, type: 3}
+  m_Name: 13 Sell At The Stall
+  m_EditorClassIdentifier: 
+  objective: Sell your harvest at Gogo's stall
+  designNote: 'Community angle: selling at fair prices to neighbours whose kids go
+    to school hungry. Gogo runs the stall.'
+  targetId: stall
+  gogo: 2
+  gogoTargetId: stallSpot
+  intro:
+    lines:
+    - text: Our neighbours need food too. Many children on our street go to school
+        hungry.
+      mood: 6
+      gesture: 0
+      holdSeconds: 0
+    - text: Come to my stall. We'll sell some at a fair price, for everyone.
+      mood: 1
+      gesture: 3
+      holdSeconds: 0
+    focusCamera: 1
+    waitForInput: 1
+  success:
+    lines:
+    - text: R{earned}! That's bread and milk for the week. Siyabonga!
+      mood: 2
+      gesture: 0
+      holdSeconds: 0
+    focusCamera: 0
+    waitForInput: 0
+  nudge:
+    lines:
+    - text: Meet me at the stall, my child. Bring the tomatoes.
+      mood: 0
+      gesture: 0
+      holdSeconds: 0
+    focusCamera: 0
+    waitForInput: 0
+  hints:
+  - key: E
+    action: Sell (look at Gogo)
+  hintTiming: 1
+  stuckSeconds: 10
+  highlightInBag: {fileID: 0}
+  completeWhen:
+    rid: 671328379574943854
+  skipIf:
+    rid: -2
+  failIf:
+    rid: -2
+  onFailGoTo: {fileID: 0}
+  onStart:
+  - rid: 671328379574943855
+  afterIntro: []
+  onComplete:
+  - rid: 671328379574943856
+  celebrate: 1
+  nextOverride: {fileID: 0}
+  endsTutorial: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 671328379574943854
+      type: {class: EarnMoneyCondition, ns: GardenGrowers.Tutorial.Conditions, asm: Assembly-CSharp}
+      data:
+        amount: 1
+    - rid: 671328379574943855
+      type: {class: SetTargetActiveAction, ns: GardenGrowers.Tutorial.Actions, asm: Assembly-CSharp}
+      data:
+        targetId: sellCounter
+        active: 1
+    - rid: 671328379574943856
+      type: {class: SetTargetActiveAction, ns: GardenGrowers.Tutorial.Actions, asm: Assembly-CSharp}
+      data:
+        targetId: sellCounter
+        active: 0

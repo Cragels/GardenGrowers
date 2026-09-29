@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceced90a424c62e4fba0c940e4627a6f, type: 3}
+  m_Name: 08 Pull The Weeds
+  m_EditorClassIdentifier: 
+  objective: Pull out the weeds
+  designNote: First emergency event. Skipped if the group's 80% weed roll didn't
+    spawn any.
+  targetId: '@activePlot'
+  gogo: 0
+  gogoTargetId: 
+  intro:
+    lines:
+    - text: Hayi! Weeds grew in the night!
+      mood: 5
+      gesture: 3
+      holdSeconds: 0
+    - text: Weeds steal the water and food our plant needs. Pull them out!
+      mood: 5
+      gesture: 0
+      holdSeconds: 0
+    focusCamera: 1
+    waitForInput: 1
+  success:
+    lines:
+    - text: Much better. Now our plant can breathe.
+      mood: 1
+      gesture: 0
+      holdSeconds: 0
+    focusCamera: 0
+    waitForInput: 0
+  nudge:
+    lines:
+    - text: Walk to the bed and pull those weeds.
+      mood: 0
+      gesture: 3
+      holdSeconds: 0
+    focusCamera: 0
+    waitForInput: 0
+  hints:
+  - key: E
+    action: Pull weeds
+  hintTiming: 0
+  stuckSeconds: 15
+  highlightInBag: {fileID: 0}
+  completeWhen:
+    rid: 671328379574943817
+  skipIf:
+    rid: 671328379574943818
+  failIf:
+    rid: -2
+  onFailGoTo: {fileID: 0}
+  onStart: []
+  afterIntro: []
+  onComplete: []
+  celebrate: 1
+  nextOverride: {fileID: 0}
+  endsTutorial: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 671328379574943817
+      type: {class: WeedsClearedCondition, ns: GardenGrowers.Tutorial.Conditions, asm: Assembly-CSharp}
+      data: 
+    - rid: 671328379574943818
+      type: {class: NotCondition, ns: GardenGrowers.Tutorial.Conditions, asm: Assembly-CSharp}
+      data:
+        condition:
+          rid: 671328379574943819
+    - rid: 671328379574943819
+      type: {class: WeedsPresentCondition, ns: GardenGrowers.Tutorial.Conditions, asm: Assembly-CSharp}
+      data: 

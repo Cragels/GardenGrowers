@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceced90a424c62e4fba0c940e4627a6f, type: 3}
+  m_Name: 11 Chase The Bird
+  m_EditorClassIdentifier: 
+  objective: Chase the bird away!
+  designNote: 'Second emergency event, a real test with a fair timer. Failing is
+    safe: it branches to a short replant.'
+  targetId: '@bird'
+  gogo: 0
+  gogoTargetId: 
+  intro:
+    lines:
+    - text: Hayi! A bird! It wants our tomatoes. Chase it away!
+      mood: 5
+      gesture: 7
+      holdSeconds: 0
+    focusCamera: 0
+    waitForInput: 0
+  success:
+    lines:
+    - text: Ha! Off you go, bird! Find your own lunch!
+      mood: 2
+      gesture: 0
+      holdSeconds: 0
+    focusCamera: 0
+    waitForInput: 0
+  nudge:
+    lines: []
+    focusCamera: 0
+    waitForInput: 0
+  hints:
+  - key: WASD
+    action: Run at it
+  - key: Shift
+    action: Sprint
+  hintTiming: 0
+  stuckSeconds: 6
+  highlightInBag: {fileID: 0}
+  completeWhen:
+    rid: 671328379574943842
+  skipIf:
+    rid: 671328379574943843
+  failIf:
+    rid: 671328379574943844
+  onFailGoTo: {fileID: 11400000, guid: ab9db383f4e5d994bafeee1d42685ca2, type: 2}
+  onStart:
+  - rid: 671328379574943845
+  afterIntro: []
+  onComplete:
+  - rid: 671328379574943846
+  celebrate: 1
+  nextOverride: {fileID: 0}
+  endsTutorial: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 671328379574943842
+      type: {class: AnyOfCondition, ns: GardenGrowers.Tutorial.Conditions, asm: Assembly-CSharp}
+      data:
+        conditions:
+        - rid: 671328379574943847
+        - rid: 671328379574943848
+    - rid: 671328379574943843
+      type: {class: AnyOfCondition, ns: GardenGrowers.Tutorial.Conditions, asm: Assembly-CSharp}
+      data:
+        conditions:
+        - rid: 671328379574943849
+        - rid: 671328379574943850
+    - rid: 671328379574943844
+      type: {class: PlantEatenCondition, ns: GardenGrowers.Tutorial.Conditions, asm: Assembly-CSharp}
+      data: 
+    - rid: 671328379574943845
+      type: {class: BirdAttackAction, ns: GardenGrowers.Tutorial.Actions, asm: Assembly-CSharp}
+      data:
+        spawnTargetId: birdSpawn
+        searchDelay: 0.3
+        eatDuration: 7
+        speed: 4
+    - rid: 671328379574943846
+      type: {class: HideBirdAction, ns: GardenGrowers.Tutorial.Actions, asm: Assembly-CSharp}
+      data:
+        delay: 2.5
+        dontWait: 1
+    - rid: 671328379574943847
+      type: {class: BirdScaredCondition, ns: GardenGrowers.Tutorial.Conditions, asm: Assembly-CSharp}
+      data:
+        chaseDistance: 6
+    - rid: 671328379574943848
+      type: {class: TimerCondition, ns: GardenGrowers.Tutorial.Conditions, asm: Assembly-CSharp}
+      data:
+        seconds: 35
+    - rid: 671328379574943849
+      type: {class: NoBirdCondition, ns: GardenGrowers.Tutorial.Conditions, asm: Assembly-CSharp}
+      data: 
+    - rid: 671328379574943850
+      type: {class: NotCondition, ns: GardenGrowers.Tutorial.Conditions, asm: Assembly-CSharp}
+      data:
+        condition:
+          rid: 671328379574943851
+    - rid: 671328379574943851
+      type: {class: PlantFullyGrownCondition, ns: GardenGrowers.Tutorial.Conditions, asm: Assembly-CSharp}
+      data: 

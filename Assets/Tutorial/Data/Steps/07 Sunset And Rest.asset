@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceced90a424c62e4fba0c940e4627a6f, type: 3}
+  m_Name: 07 Sunset And Rest
+  m_EditorClassIdentifier: 
+  objective: Rest in the house until morning
+  designNote: Shows the day cycle with a real time-lapse of the group's TimeManager,
+    then teaches the bed.
+  targetId: bed
+  gogo: 0
+  gogoTargetId: 
+  intro:
+    lines:
+    - text: Seeds don't grow in one day. They need time... and a good night's sleep.
+      mood: 4
+      gesture: 0
+      holdSeconds: 0
+    focusCamera: 1
+    waitForInput: 1
+  success:
+    lines: []
+    focusCamera: 0
+    waitForInput: 0
+  nudge:
+    lines:
+    - text: The bed is inside the house. Go on, rest.
+      mood: 0
+      gesture: 3
+      holdSeconds: 0
+    focusCamera: 0
+    waitForInput: 0
+  hints:
+  - key: E
+    action: Rest
+  hintTiming: 0
+  stuckSeconds: 15
+  highlightInBag: {fileID: 0}
+  completeWhen:
+    rid: 671328379574943804
+  skipIf:
+    rid: -2
+  failIf:
+    rid: -2
+  onFailGoTo: {fileID: 0}
+  onStart: []
+  afterIntro:
+  - rid: 671328379574943805
+  - rid: 671328379574943806
+  - rid: 671328379574943807
+  onComplete:
+  - rid: 671328379574943808
+  - rid: 671328379574943809
+  celebrate: 0
+  nextOverride: {fileID: 0}
+  endsTutorial: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 671328379574943804
+      type: {class: DayPassedCondition, ns: GardenGrowers.Tutorial.Conditions, asm: Assembly-CSharp}
+      data:
+        days: 1
+        mustBeMorning: 1
+        morningFromHour: 5
+    - rid: 671328379574943805
+      type: {class: TimeLapseAction, ns: GardenGrowers.Tutorial.Actions, asm: Assembly-CSharp}
+      data:
+        hour: 18
+        minute: 5
+        realSeconds: 6
+        banner: The day goes by...
+        waitUntilDone: 1
+    - rid: 671328379574943806
+      type: {class: SetClockSpeedAction, ns: GardenGrowers.Tutorial.Actions, asm: Assembly-CSharp}
+      data:
+        gameMinutesPerSecond: 0.1
+    - rid: 671328379574943807
+      type: {class: GogoSayAction, ns: GardenGrowers.Tutorial.Actions, asm: Assembly-CSharp}
+      data:
+        lines:
+          lines:
+          - text: It's getting dark. Let's go inside and rest.
+            mood: 0
+            gesture: 3
+            holdSeconds: 0
+          focusCamera: 0
+          waitForInput: 0
+        waitUntilFinished: 0
+    - rid: 671328379574943808
+      type: {class: FadeFlashAction, ns: GardenGrowers.Tutorial.Actions, asm: Assembly-CSharp}
+      data:
+        caption: The next morning...
+        fadeInSeconds: 0.15
+        holdSeconds: 1.6
+        fadeOutSeconds: 1
+    - rid: 671328379574943809
+      type: {class: SetClockSpeedAction, ns: GardenGrowers.Tutorial.Actions, asm: Assembly-CSharp}
+      data:
+        gameMinutesPerSecond: 0.5

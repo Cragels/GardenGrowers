@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SpecialPlotScript : MonoBehaviour, ITimeTracker
 {
@@ -11,6 +12,9 @@ public class SpecialPlotScript : MonoBehaviour, ITimeTracker
     }
 
     public PlotStatus plotStatus;
+
+    [Header("Events")]
+    public UnityEvent onFullyGrown;
 
     [Header("References")]
     [SerializeField] private Interactable interactable;
@@ -142,8 +146,14 @@ public class SpecialPlotScript : MonoBehaviour, ITimeTracker
     private void AdvanceGrowth()
     {
         if (plantedSeed == null) return;
+
+        bool wasFullyGrown = IsFullyGrown();
+
         growthStageIndex = Mathf.Min(growthStageIndex + 1, plantedSeed.growthStagePrefabs.Length - 1);
         RefreshVisuals();
+
+        if (!wasFullyGrown && IsFullyGrown())
+            onFullyGrown?.Invoke();
     }
 
     public void SwitchPlotStatus(PlotStatus statusToSwitch)

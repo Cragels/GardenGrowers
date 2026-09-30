@@ -2,11 +2,23 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class EndingSequence : MonoBehaviour
 {
     [Header("Target")]
     public Transform tree;                  // the apple tree root
+
+    [Header("Player")]
+    public GameObject player;
+
+    [Header("HUD")]
+    public GameObject HUD;
+
+    [Header("Scene change")]
+    public string mainMenuScene = "MainMenu";   // must match your scene name exactly
+    public float fadeInSeconds = 2f;
+
 
     [Header("Camera move")]
     public float riseSeconds = 12f;
@@ -23,7 +35,15 @@ public class EndingSequence : MonoBehaviour
     public float holdSeconds = 2.5f;
     public float fadeOutSeconds = 3f;
 
-    public void Play() => StartCoroutine(Run());
+    private bool started;
+
+    public void Play()
+    {
+
+        if (started) return;
+        started = true;
+        StartCoroutine(Run());
+    }
 
     private IEnumerator Run()
     {
@@ -31,6 +51,9 @@ public class EndingSequence : MonoBehaviour
 
         // hand over from gameplay cameras
         foreach (Camera c in Camera.allCameras) c.gameObject.SetActive(false);
+        if (player != null) player.SetActive(false);
+
+        if (HUD != null) HUD.SetActive(false);
 
         GameObject camGO = new GameObject("EndingCamera");
         Camera cam = camGO.AddComponent<Camera>();
@@ -102,5 +125,33 @@ public class EndingSequence : MonoBehaviour
             yield return null;
         }
         fade.color = Color.black;
+
+        // keep the black overlay and this coroutine alive across the scene load
+        DontDestroyOnLoad(canvasGO);
+        transform.SetParent(null);          // DontDestroyOnLoad only works on root objects
+        DontDestroyOnLoad(gameObject);
+
+        // reset anything the game changed
+        Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        AsyncOperation load = SceneManager.LoadSceneAsync(mainMenuScene);
+        while (!load.isDone) yield return null;
+        yield return null;                  // let the menu scene render one frame under the black
+
+        // fade from black to normal
+        t = 0f;
+        while (t < fadeInSeconds)
+        {
+            t += Time.unscaledDeltaTime;
+            fade.color = new Color(0f, 0f, 0f, 1f - Mathf.Clamp01(t / fadeInSeconds));
+            yield return null;
+        }
+
+        Destroy(canvasGO);
+        Destroy(gameObject);
     }
+
+
 }

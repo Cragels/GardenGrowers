@@ -18843,6 +18843,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 721668243}
+  - component: {fileID: 721668244}
   m_Layer: 0
   m_Name: SpecialGrowBed
   m_TagString: Untagged
@@ -18867,6 +18868,32 @@ Transform:
   - {fileID: 4403028310198464065}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 26.695, z: 0}
+--- !u!114 &721668244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721668242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aff3a7af6f8e20b438c51715279eb88a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tree: {fileID: 4403028310198464065}
+  player: {fileID: 262798037}
+  HUD: {fileID: 177528112}
+  riseSeconds: 12
+  cameraDistance: 30
+  startHeight: 1
+  endHeight: 10
+  lookStart: 1
+  lookEnd: 5.4
+  message: Thanks for playing!
+  textFadeIn: 2.5
+  textAppearsAt: 0.45
+  holdSeconds: 2.5
+  fadeOutSeconds: 3
 --- !u!1 &723949329
 GameObject:
   m_ObjectHideFlags: 0
@@ -29126,7 +29153,7 @@ MonoBehaviour:
   itemQuantities: 0000000000000000000000000000000000000000000000000000000000000000
   equippedItem: {fileID: 0}
   equippedItemQuantity: 0
-  money: 100
+  money: 1000
 --- !u!1001 &1130729837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48049,7 +48076,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a184cb42a53f0424d91b9b0975ff558c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.440001
+      value: -17.86
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a184cb42a53f0424d91b9b0975ff558c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -48057,7 +48084,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a184cb42a53f0424d91b9b0975ff558c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 17.779999
+      value: 14.92
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a184cb42a53f0424d91b9b0975ff558c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -54859,6 +54886,34 @@ PrefabInstance:
     - target: {fileID: 2010840946365630829, guid: fa060dd7600418945bd3cab552e5a6d6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435466534818415563, guid: fa060dd7600418945bd3cab552e5a6d6, type: 3}
+      propertyPath: onFullyGrown.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435466534818415563, guid: fa060dd7600418945bd3cab552e5a6d6, type: 3}
+      propertyPath: onFullyGrown.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435466534818415563, guid: fa060dd7600418945bd3cab552e5a6d6, type: 3}
+      propertyPath: onFullyGrown.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 721668244}
+    - target: {fileID: 5435466534818415563, guid: fa060dd7600418945bd3cab552e5a6d6, type: 3}
+      propertyPath: onFullyGrown.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435466534818415563, guid: fa060dd7600418945bd3cab552e5a6d6, type: 3}
+      propertyPath: onFullyGrown.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435466534818415563, guid: fa060dd7600418945bd3cab552e5a6d6, type: 3}
+      propertyPath: onFullyGrown.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: EndingSequence, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435466534818415563, guid: fa060dd7600418945bd3cab552e5a6d6, type: 3}
+      propertyPath: onFullyGrown.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6149742620861834353, guid: fa060dd7600418945bd3cab552e5a6d6, type: 3}
       propertyPath: m_AnchoredPosition.y

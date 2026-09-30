@@ -69,6 +69,8 @@ public class UIManager : MonoBehaviour, ITimeTracker
         AssignSlotIndexes();
         UpdateMoney(InventoryManager.Instance.money);
 
+        Hud.SetActive(true);
+
         //Add UI Manager to list of objects TimeManager will notify
         TimeManager.Instance.RegisterTracker(this);
 

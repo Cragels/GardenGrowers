@@ -13,6 +13,15 @@ public class FaceCamera : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (transform.parent == null) return;
+
+
+        if (_mainCamera == null)
+        {
+            _mainCamera = Camera.main;
+            if (_mainCamera == null) return;   // no camera this frame, skip quietly
+        }
+
         transform.position = transform.parent.position + offsetFromParent;
 
         Vector3 directionToCamera = _mainCamera.transform.position - transform.position;

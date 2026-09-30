@@ -27,6 +27,13 @@ public class PlayerInteraction : MonoBehaviour
 
     void CheckInteraction()
     {
+        Camera cam = Camera.main;
+        if (cam == null)
+        {
+            DisableCurrentInteractable();
+            return;
+        }
+
         RaycastHit hit;
         Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
         //colliders within reach

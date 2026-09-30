@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Grandpa's Seed
   description: An old seed packet from Granny.
-  thumbnail: {fileID: 21300000, guid: 85e17b1ad5723e14eb39ee383b4f6be7, type: 3}
+  thumbnail: {fileID: 21300000, guid: 09899037b6533bf4389d4fec38d550ee, type: 3}
   gameModel: {fileID: 6373163703826983769, guid: c0bbe4f3aa9a11444b59123e4da33eef, type: 3}
   modelPositionOffset: {x: 0, y: -0.15, z: -0.05}
   modelRotationOffset: {x: -90, y: -45, z: 0}
@@ -28,31 +28,30 @@ MonoBehaviour:
   cropToYield: {fileID: 0}
   growthStagePrefabs:
   - {fileID: 4658697149955759820, guid: 20b847ccd462f224fbbec8272fa0cdb4, type: 3}
-  - {fileID: 5494239960157703405, guid: f43dbd8ddacff084287ba3529bf49b29, type: 3}
-  - {fileID: 5494239960157703405, guid: f43dbd8ddacff084287ba3529bf49b29, type: 3}
-  - {fileID: 5494239960157703405, guid: f43dbd8ddacff084287ba3529bf49b29, type: 3}
-  - {fileID: 5494239960157703405, guid: f43dbd8ddacff084287ba3529bf49b29, type: 3}
-  - {fileID: 7904984762039192671, guid: 10efc384a59446d4eb7852108c5e3071, type: 3}
-  - {fileID: 7904984762039192671, guid: 10efc384a59446d4eb7852108c5e3071, type: 3}
-  - {fileID: 7904984762039192671, guid: 10efc384a59446d4eb7852108c5e3071, type: 3}
-  - {fileID: 7904984762039192671, guid: 10efc384a59446d4eb7852108c5e3071, type: 3}
-  - {fileID: 3213463405221988644, guid: 5c3f68efb9310804bbd307a62d841dad, type: 3}
-  - {fileID: 3213463405221988644, guid: 5c3f68efb9310804bbd307a62d841dad, type: 3}
-  - {fileID: 3213463405221988644, guid: 5c3f68efb9310804bbd307a62d841dad, type: 3}
-  - {fileID: 3213463405221988644, guid: 5c3f68efb9310804bbd307a62d841dad, type: 3}
-  - {fileID: 8105197796779542523, guid: cf63c2f4d9d90c347bfb33c6628bce6b, type: 3}
-  - {fileID: 8105197796779542523, guid: cf63c2f4d9d90c347bfb33c6628bce6b, type: 3}
-  - {fileID: 8105197796779542523, guid: cf63c2f4d9d90c347bfb33c6628bce6b, type: 3}
-  - {fileID: 9175051773810107106, guid: 616a4fa96395aab4cb03902b9aeb9456, type: 3}
-  - {fileID: 9175051773810107106, guid: 616a4fa96395aab4cb03902b9aeb9456, type: 3}
-  - {fileID: 9175051773810107106, guid: 616a4fa96395aab4cb03902b9aeb9456, type: 3}
-  - {fileID: 1022636838419636303, guid: d98b3be4c8eafcb439b89de2479cd3ed, type: 3}
-  - {fileID: 1022636838419636303, guid: d98b3be4c8eafcb439b89de2479cd3ed, type: 3}
-  - {fileID: 1022636838419636303, guid: d98b3be4c8eafcb439b89de2479cd3ed, type: 3}
-  - {fileID: 1022636838419636303, guid: d98b3be4c8eafcb439b89de2479cd3ed, type: 3}
-  - {fileID: 1022636838419636303, guid: d98b3be4c8eafcb439b89de2479cd3ed, type: 3}
-  - {fileID: 1022636838419636303, guid: d98b3be4c8eafcb439b89de2479cd3ed, type: 3}
-  - {fileID: 258602976779902309, guid: cf026a1e7900fd14c9f4bce8076163cb, type: 3}
+  - {fileID: 3452964683600387962, guid: 4a3ca76404006fe4da1a23e602a2c8b3, type: 3}
+  - {fileID: 3452964683600387962, guid: 4a3ca76404006fe4da1a23e602a2c8b3, type: 3}
+  - {fileID: 3529671973495848535, guid: 1c729e1e4ebc27c4ca55d77116ff6d42, type: 3}
+  - {fileID: 2867196111511040623, guid: d047b85132f7d534aaec5d36065e0869, type: 3}
+  - {fileID: 2255973681598787489, guid: ab9cc8b7502bf5c47a0e1cb7375a8e1b, type: 3}
+  - {fileID: 2755877232491800808, guid: dfe4342daa5bab040b0be95ea5550d47, type: 3}
+  - {fileID: 6448753320031820921, guid: eaf7bbb977232ea4ab5a77960db40aa6, type: 3}
+  - {fileID: 1110084562897376399, guid: db94cb8f67c839e46bb8bc3381831b50, type: 3}
+  - {fileID: 5621948629314113454, guid: 047e34171fdb54748b192ac129dd5849, type: 3}
+  - {fileID: 23315453120281470, guid: 84d812646bf0e4c44a41c8d25fc7bcb2, type: 3}
+  - {fileID: 8917297652162925449, guid: 52bad5c56dac68f4d9c4da4b722621de, type: 3}
+  - {fileID: 407091164391863695, guid: 048c5ecbe93ecd146bb7e6f5bf75249e, type: 3}
+  - {fileID: 4881715278556625802, guid: 6d31a5872fb67cf4a9e4d38ac14eaa55, type: 3}
+  - {fileID: 5475765853333026671, guid: ec0e55352728491419b5d845f4bd44a8, type: 3}
+  - {fileID: 4150826543057293144, guid: 60fb8e5e85e3b2c44af49067ace6a2e1, type: 3}
+  - {fileID: 6758723695161161643, guid: d6d5b2f1822cf7b4b88597aed3c3a6a9, type: 3}
+  - {fileID: 261659994682799451, guid: ff13519066bc8ca448999139016372ac, type: 3}
+  - {fileID: 7346652412871513329, guid: ad89834597c38e642a942c1b5614c213, type: 3}
+  - {fileID: 3441147509753768757, guid: 40142828677b498408087d2ffc128912, type: 3}
+  - {fileID: 1567719944420242909, guid: ed1b83d9e2cc1fc47bc8498ea8c11940, type: 3}
+  - {fileID: 3245208652783195318, guid: 55c7a6f8fba3ea04598ba313a7e1b921, type: 3}
+  - {fileID: 5675270415901680647, guid: 2f6e6780311c5ed4293dbbce774f31e2, type: 3}
+  - {fileID: 5675270415901680647, guid: 2f6e6780311c5ed4293dbbce774f31e2, type: 3}
+  - {fileID: 1478319765953904874, guid: 278a4e0c312348049bbdd98f18ed9e54, type: 3}
   plotModelPositionOffset: {x: 0, y: 0, z: 0}
   plotModelRotationOffset: {x: 0, y: 0, z: 0}
   IsSpecialSeed: 1

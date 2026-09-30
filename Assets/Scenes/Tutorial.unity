@@ -15111,6 +15111,62 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: 637f40aba49123b44afca41f1170a71a, type: 3}
+--- !u!1 &555784564
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 555784566}
+  - component: {fileID: 555784565}
+  m_Layer: 0
+  m_Name: Ending
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &555784565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555784564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aff3a7af6f8e20b438c51715279eb88a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tree: {fileID: 0}
+  riseSeconds: 12
+  cameraDistance: 9
+  startHeight: 0.4
+  endHeight: 7.6
+  lookStart: 1
+  lookEnd: 5.4
+  message: Thanks for playing
+  textFadeIn: 2.5
+  textAppearsAt: 0.45
+  holdSeconds: 2.5
+  fadeOutSeconds: 3
+--- !u!4 &555784566
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555784564}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 289.65018, y: -105.607956, z: -13.938583}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &556735072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61151,3 +61207,4 @@ SceneRoots:
   - {fileID: 95085833}
   - {fileID: 476782748}
   - {fileID: 1214292899}
+  - {fileID: 555784566}

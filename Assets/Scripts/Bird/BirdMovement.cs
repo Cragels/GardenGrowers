@@ -9,8 +9,14 @@ public class BirdMovment : MonoBehaviour
     public Transform centerPoint;
     public int speed;
 
+    private Animator anim;
+    public float landLeadDistance = 4.5f;
+
     public float angle = 5f;
     public float idleHeight = 20f;
+
+    public float turnSpeed = 360f;
+    private Vector3 prevPos;
 
     public BirdEnum currentState;
    // public BirdEnum previousState;
@@ -39,9 +45,14 @@ public class BirdMovment : MonoBehaviour
 
     void Awake()
     {
+        anim = GetComponentInChildren<Animator>();
+        if (anim == null)
+            Debug.LogError("Bird has no Animator in children — is the Crow model missing?", this);
+        prevPos = transform.position;
         currentState = BirdEnum.Idle;
         //previousState = BirdEnum.Idle;
         idleTimer = 0f;
+        prevPos = transform.position;
     }
 
     void Update()
@@ -68,6 +79,25 @@ public class BirdMovment : MonoBehaviour
                 birdFlee();
                 break;
         }
+
+        Vector3 move = transform.position - prevPos;
+        move.y = 0f;                                  // yaw only, so it never nose-dives
+        if (move.sqrMagnitude > 0.0001f)
+        {
+            Quaternion want = Quaternion.LookRotation(move.normalized, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, want,
+                                                          turnSpeed * Time.deltaTime);
+        }
+        prevPos = transform.position;
+    }
+
+
+    private void OnEnable()
+    {
+        if (anim == null) anim = GetComponentInChildren<Animator>();
+        anim.SetBool("Perched", false);
+        anim.Play("Crow_Fly", 0, 0f);
+        prevPos = transform.position;
     }
 
     /*public void switchState()
@@ -167,9 +197,17 @@ public class BirdMovment : MonoBehaviour
             return;
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, targetTransform.position, speed * Time.deltaTime);
+        float d = Vector3.Distance(transform.position, targetTransform.position);
 
-        if (Vector3.Distance(transform.position, targetTransform.position) < 0.3f)
+        // begin the landing flare early, so it finishes as the bird touches down
+        if (d < landLeadDistance)
+            anim.SetBool("Perched", true);
+
+        transform.position = Vector3.MoveTowards(transform.position,
+                                                 targetTransform.position,
+                                                 speed * Time.deltaTime);
+
+        if (d < 0.3f)
         {
             eatTimer = 0f;
             currentState = BirdEnum.Eat;
@@ -227,6 +265,7 @@ public class BirdMovment : MonoBehaviour
         targetPlot = null;
         targetTransform = null;
         currentState = BirdEnum.Flee;
+        anim.SetBool("Perched", false);
 
     }
 
